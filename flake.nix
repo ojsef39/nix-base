@@ -6,9 +6,6 @@
     darwin.url = "github:lnl7/nix-darwin/master";
   };
   outputs = { self, nixpkgs, home-manager, darwin, ... }:
-  let
-    vars = { user = "josefhofer"; email = "me@jhofer.de"; };
-  in
   {
     sharedModules = [
       ./nix/core.nix
@@ -21,15 +18,13 @@
             inputs = {
               inherit nixpkgs home-manager darwin;
             };
-            vars = vars;
           };
-          users.${vars.user} = import ./hosts/shared/import.nix { inherit vars; };
         };
       }
-      ./hosts/shared/import.nix { inherit vars; }
+      ./hosts/shared/import.nix
     ];
     macModules = [
-      ./hosts/darwin/import.nix { inherit vars; }
+      ./hosts/darwin/import.nix
     ];
   };
 }
