@@ -5,7 +5,7 @@ let
     then builtins.attrNames (builtins.readDir ./programs)
     else [];
 
-  programModules = map (dir: import ./programs/${dir}) programDirs;
+  programModules = map (dir: import ./programs/${dir}/default.nix) programDirs;
 
   # Determine home directory based on system
   homeDirectory = builtins.getEnv "HOME";
