@@ -10,6 +10,5 @@
     sharedModuls = {};
     macModules = {};
     linuxModules = {};
-    };
   };
 }
