@@ -15,7 +15,6 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = { inherit vars inputs; };
-          users.${vars.user} = import ./hosts/shared/import.nix;
         };
       })
     ];
