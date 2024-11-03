@@ -11,16 +11,11 @@ let
     then "/Users/${vars.user}/"
     else "/home/${vars.user}";
 
-  user = "${vars.user}";
-  email = "${vars.email}";
-
-  tracedUser = builtins.trace user;
-
 in
 {
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${tracedUser} = {
+  home-manager.users.${vars.user} = {
     home.stateVersion = "24.05";
     home.homeDirectory = homeDirectory;
 
