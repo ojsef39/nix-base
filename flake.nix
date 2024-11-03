@@ -1,4 +1,3 @@
-{ vars, ... }:
 {
   description = "ojsef39 base nix configuration";
   inputs = {
@@ -11,14 +10,14 @@
     sharedModules = [
       ./nix/core.nix
       home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit inputs vars; };
-            users.${vars.user} = import ./hosts/shared/import.nix;
-          };
-        }
+      ({ vars, ... }: {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
+          users.${vars.user} = import ./hosts/shared/import.nix;
+        };
+      })
     ];
     macModules = [
       ./hosts/darwin/import.nix

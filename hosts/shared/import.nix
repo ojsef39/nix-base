@@ -11,15 +11,13 @@ let
     then "/Users/${vars.user}/"
     else "/home/${vars.user}";
 
-  tracedHomeDirectory = builtins.toPath homeDirectory;
-
 in
 {
   nixpkgs.config.allowUnfree = true;
 
   home-manager.users.${vars.user} = {
     home.stateVersion = "24.05";
-    home.homeDirectory = tracedHomeDirectory;
+    home.homeDirectory = homeDirectory;
 
     programs.home-manager = {
       enable = true;
