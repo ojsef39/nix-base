@@ -11,11 +11,14 @@ let
     then "/Users/${vars.user}/"
     else "/home/${vars.user}";
 
+  user = "${vars.user}";
+  email = "${vars.email}";
+
 in
 {
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${vars.user} = {
+  home-manager.users.${user} = {
     home.stateVersion = "24.05";
     home.homeDirectory = homeDirectory;
 
