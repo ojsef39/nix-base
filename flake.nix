@@ -5,17 +5,17 @@
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
   };
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, vars, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:
   {
     sharedModules = [
       ./nix/core.nix
       home-manager.darwinModules.home-manager
-      {
+      { config, ... }: {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = { inherit inputs; };
-          users.${vars.user} = import ./hosts/shared/import.nix;
+          users.${config.vars.user} = import ./hosts/shared/import.nix;
         };
       }
     ];
