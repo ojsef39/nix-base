@@ -1,13 +1,12 @@
 { vars, pkgs, ... }:
 let
   # Get all immediate subdirectories of ./programs
-  programDirs = builtins.attrNames (
-    builtins.readDir ./programs
-  );
-  # Map each directory to its default.nix path
-  programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
+  programDirs = builtins.attrNames (builtins.readDir ./programs);
 
-  # Determine home directory based on system
+  # Import each module
+  programModules = map (dir: import ./programs/${dir}/default.nix) programDirs;
+
+  # Determine home directory
   homeDirectory = builtins.getEnv "HOME";
 in
 {
