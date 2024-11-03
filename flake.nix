@@ -8,7 +8,12 @@
 
   outputs = { self, nixpkgs, home-manager }: {
     sharedModules = {};
-    macModules = {};
+
+    macModules = {
+      programs.zsh = {
+        enable = true;
+      };
+    };
     linuxModules = {};
   };
 }
