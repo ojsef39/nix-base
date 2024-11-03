@@ -1,4 +1,3 @@
-# programs/editor/default.nix
 { pkgs, lib, ... }:
 let
   # Filter out lazy-lock.json from the source directory
@@ -31,8 +30,6 @@ in
       source = nvimConfigFiltered;
       recursive = true;
     };
-
-
   };
 
   home.file = {
@@ -44,5 +41,5 @@ in
         chmod 755 $HOME/.local/share/nvim
       '';
     };
-    };
+  };
 }
