@@ -13,7 +13,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; vars = config.vars; };
           users = {
             ${config.vars.user} = import ./hosts/shared/import.nix;
           };
