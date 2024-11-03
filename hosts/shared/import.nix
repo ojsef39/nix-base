@@ -1,9 +1,10 @@
 { vars, pkgs, ... }:
 let
-  # Get all immediate subdirectories of ./programs
-  programDirs = builtins.attrNames (
-    builtins.readDir ./programs
-  );
+  # Check if the ./programs directory exists and is not empty
+  programDirs = if builtins.pathExists ./programs && builtins.length (builtins.readDir ./programs) > 0
+    then builtins.attrNames (builtins.readDir ./programs)
+    else [];
+
   # Map each directory to its default.nix path
   programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
 
