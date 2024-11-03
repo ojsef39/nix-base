@@ -7,7 +7,9 @@ let
   programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
 
   # Determine home directory based on system
-  homeDirectory = builtins.getEnv "HOME";
+  homeDirectory = if pkgs.stdenv.isDarwin
+    then "/Users/${vars.user}"
+    else "/home/${vars.user}";
 in
 {
   nixpkgs.config.allowUnfree = true;
