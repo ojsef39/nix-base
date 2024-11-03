@@ -12,6 +12,18 @@
       ./nix/core.nix
       ./hosts/shared/import.nix
       home-manager.darwinModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = {
+            inputs = {
+              inherit nixpkgs home-manager darwin;
+            };
+          };
+          users.${builtins.getEnv "USER"} = import ./home;
+        };
+      }
     ];
     macModules = [
       ./hosts/darwin/import.nix
