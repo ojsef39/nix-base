@@ -12,12 +12,13 @@ let
 in
 {
   nixpkgs.config.allowUnfree = true;
+
+  programs.home-manager.enable = true;
+
   imports = programModules;
 
   home = {
     inherit homeDirectory;
     stateVersion = "24.05";
   };
-
-  programs.home-manager.enable = true;
 }
