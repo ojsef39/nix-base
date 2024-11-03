@@ -11,13 +11,15 @@ let
     then "/Users/${vars.user}/"
     else "/home/${vars.user}";
 
+  homeDirectoryPath = builtins.toPath homeDirectory;
+
 in
 {
   nixpkgs.config.allowUnfree = true;
   imports = programModules;
 
   home = {
-    inherit homeDirectory;
+    inherit homeDirectoryPath;
     stateVersion = "24.05";
   };
 
