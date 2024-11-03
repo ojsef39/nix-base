@@ -8,10 +8,10 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin }: {
-    sharedModules = {
+    sharedModules = [
       ./nix/core.nix
-      };
-    macModules = {};
+      ];
+    macModules = [];
     # linuxModules = {};
   };
 }
