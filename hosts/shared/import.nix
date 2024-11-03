@@ -5,7 +5,7 @@ let
 
   # Filter entries to include only directories and exclude hidden files
   programDirs = builtins.filter (name:
-    entries.${name}.type == "directory" && ! builtins.hasPrefix "." name
+    entries.${name}.type == "directory" && ! (builtins.hasPrefix "." name)
   ) (builtins.attrNames entries);
 
   # Map over the program directories to import each module
