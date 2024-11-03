@@ -7,7 +7,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager }: {
-    sharedModuls = {};
+    sharedModules = {};
     macModules = {};
     linuxModules = {};
   };
