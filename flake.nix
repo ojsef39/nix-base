@@ -1,17 +1,17 @@
 {
   description = "ojsef39 base nix configuration";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
   };
+
   outputs = { self, nixpkgs, home-manager, darwin }: {
     sharedModules = [
       ./nix/core.nix
-
-      # Import home-manager module before other modules
+      ./hosts/shared/import.nix
       home-manager.darwinModules.home-manager
-
       {
         home-manager = {
           useGlobalPkgs = true;
@@ -24,8 +24,6 @@
           users.${builtins.getEnv "USER"} = import ./home;
         };
       }
-
-    ./hosts/shared/import.nix
     ];
     macModules = [
       ./hosts/darwin/import.nix
