@@ -1,14 +1,14 @@
 { pkgs, ... }:
 let
-  # Check if the ./programs directory exists and is not empty
-  programDirs = if builtins.pathExists ./programs && builtins.length (builtins.readDir ./programs) > 0
-    then builtins.attrNames (builtins.readDir ./programs)
-    else [];
+  # Get all entries in ./programs
+  entries = builtins.readDir ./programs;
+
+  # Filter entries to include only directories and exclude hidden files
+  programDirs = [ name
+    for name in builtins.attrNames entries
+    if entries.${name}.type == "directory" && ! builtins.hasPrefix "." name ];
 
   programModules = map (dir: import ./programs/${dir}/default.nix) programDirs;
-
-  # Determine home directory based on system
-  homeDirectory = builtins.getEnv "HOME";
 in
 {
   nixpkgs.config.allowUnfree = true;
