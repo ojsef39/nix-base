@@ -1,16 +1,13 @@
-{ pkgs, ... }:
+{ vars, pkgs, ... }:
 let
-  # Get all entries in ./programs
-  entries = builtins.readDir ./programs;
+  # Get all immediate subdirectories of ./programs
+  programDirs = builtins.attrNames (
+    builtins.readDir ./programs
+  );
+  # Map each directory to its default.nix path
+  programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
 
-  # Combine filtering and importing in one pass
-  programModules = builtins.foldl' (acc: name:
-    if entries.${name}.type == "directory" && ! (builtins.hasPrefix "." name)
-    then acc ++ [(import ./programs/${name}/default.nix)]
-    else acc
-  ) [] (builtins.attrNames entries);
-
-  # Determine home directory based on system 
+  # Determine home directory based on system
   homeDirectory = builtins.getEnv "HOME";
 in
 {
