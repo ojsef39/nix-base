@@ -10,7 +10,6 @@
   outputs = { self, nixpkgs, home-manager, darwin }: {
     sharedModules = [
       ./nix/core.nix
-      ./hosts/shared/import.nix
       home-manager.darwinModules.home-manager
       {
         home-manager = {
@@ -24,6 +23,7 @@
           users.${builtins.getEnv "USER"} = import ./home;
         };
       }
+      ./hosts/shared/import.nix
     ];
     macModules = [
       ./hosts/darwin/import.nix
