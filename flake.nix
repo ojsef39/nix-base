@@ -5,7 +5,7 @@
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
   };
-  outputs = { self, nixpkgs, home-manager, darwin, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:
   {
     sharedModules = [
       ./nix/core.nix
@@ -14,11 +14,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = {
-            inputs = {
-              inherit nixpkgs home-manager darwin;
-            };
-          };
+          extraSpecialArgs = { inherit inputs; };
         };
       }
       ./hosts/shared/import.nix
