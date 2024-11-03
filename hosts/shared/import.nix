@@ -10,6 +10,9 @@ let
 
   # Map over the program directories to import each module
   programModules = map (dir: import ./programs/${dir}/default.nix) programDirs;
+
+  # Determine home directory based on system
+  homeDirectory = builtins.getEnv "HOME";
 in
 {
   nixpkgs.config.allowUnfree = true;
