@@ -8,7 +8,7 @@ let
 
   # Determine home directory based on system
   homeDirectory = if pkgs.stdenv.isDarwin
-    then "/Users/${vars.user}/"
+    then "/Users/${vars.user}"
     else "/home/${vars.user}";
 
   homeDirectoryPath = builtins.toPath homeDirectory;
