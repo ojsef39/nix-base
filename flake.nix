@@ -11,11 +11,15 @@
     sharedModules = [
       ./nix/core.nix
       ./hosts/shared/import.nix
+      home-manager.darwinModules.home-manager
       {
-        home.username = builtins.getEnv "USER";
-        home.homeDirectory = builtins.getEnv "HOME";
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          # extraSpecialArgs = { inherit vars inputs; };
+          username = builtins.getEnv "USER";
+          homeDirectory = builtins.getEnv "HOME";
+        };
       }
     ];
     macModules = [
