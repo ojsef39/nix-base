@@ -10,8 +10,16 @@
   outputs = { self, nixpkgs, home-manager, darwin }: {
     sharedModules = [
       ./nix/core.nix
-      ];
-    macModules = [];
-    # linuxModules = [];
+      ./hosts/shared/import.nix
+      {
+        home.username = builtins.getEnv "USER";
+        home.homeDirectory = builtins.getEnv "HOME";
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+      }
+    ];
+    macModules = [
+      ./hosts/darwin/import.nix
+    ];
   };
 }
