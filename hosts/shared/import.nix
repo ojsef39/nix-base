@@ -19,6 +19,5 @@ in
 
   home = {
     inherit homeDirectory;
-    stateVersion = "24.05";
   };
 }
