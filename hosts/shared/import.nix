@@ -12,7 +12,7 @@ in
 {
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${builtins.getEnv "USER"} = {
+  home-manager.users.${vars.user} = {
     home.stateVersion = "24.05";
     home.homeDirectory = homeDirectory;
 
