@@ -1,6 +1,6 @@
 # nix-base
 
-My public nix base configuration (Mac+Linux) i use in my private personal and work configurations.
+My public nix base configuration (Mac+Linux) i use in my personal and work configurations.
 
 ## Usage
 
@@ -8,7 +8,7 @@ Import with:
 
 ```nix
   inputs = {
-    # rest of your inputs
+    # custom inputs
     base.url = "github:ojsef39/nix-base";
   };
 ```
@@ -16,9 +16,9 @@ Import with:
 Use like:
 
 ```nix
-  outputs = { self, nixpkgs, darwin, home-manager, base }: {
+  outputs = { self, base }: {
     darwinConfigurations = {
-      "mac" = darwin.lib.darwinSystem {
+      "mac" = base.inputs.darwin.lib.darwinSystem {
         system = "aarch64-darwin";  # or x86_64-darwin
         modules = [
           base.sharedModules
@@ -26,3 +26,8 @@ Use like:
           # Custom Mac-specific shell customizations
           {
 ```
+
+## Folder Structure
+
+See example: <https://github.com/ojsef39/nix-personal>
+
