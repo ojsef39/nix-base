@@ -20,11 +20,14 @@ Use like:
     darwinConfigurations = {
       "mac" = base.inputs.darwin.lib.darwinSystem {
         system = "aarch64-darwin";  # or x86_64-darwin
-        modules = [
-          base.sharedModules
-          base.macModules
-          # Custom Mac-specific shell customizations
+        modules = base.outputs.sharedModules ++ base.outputs.macModules ++ [
+          # Mac-specific shell customizations
           {
+            programs.zsh = {
+              enable = true;
+            };
+          }
+        ];
 ```
 
 ## Folder Structure

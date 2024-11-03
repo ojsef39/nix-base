@@ -12,6 +12,6 @@
       ./nix/core.nix
       ];
     macModules = [];
-    # linuxModules = {};
+    # linuxModules = [];
   };
 }
