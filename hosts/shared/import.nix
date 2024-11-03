@@ -1,8 +1,9 @@
 { vars, pkgs, ... }:
 let
   # Get all immediate subdirectories of ./programs
-  programDirs = builtins.attrNames (builtins.readDir ./programs);
-
+  programDirs = builtins.attrNames (
+    builtins.readDir ./programs
+  );
   # Map each directory to its default.nix path
   programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
 
@@ -12,14 +13,12 @@ in
 {
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${builtins.getEnv "USER"} = {
-    home.stateVersion = "24.05";
-    home.homeDirectory = homeDirectory;
+  programs.home-manager.enable = true;
 
-    programs.home-manager = {
-      enable = true;
-    };
+  imports = programModules;
 
-    imports = programModules;
+  home = {
+    inherit homeDirectory;
+    stateVersion = "24.05";
   };
 }
