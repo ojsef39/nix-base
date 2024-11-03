@@ -13,12 +13,13 @@ in
 {
   nixpkgs.config.allowUnfree = true;
 
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+    enable = true;
+    home = {
+      inherit homeDirectory;
+      stateVersion = "24.05";
+    };
+  };
 
   imports = programModules;
-
-  home = {
-    inherit homeDirectory;
-    stateVersion = "24.05";
-  };
 }
