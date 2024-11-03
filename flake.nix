@@ -1,3 +1,4 @@
+{ vars, ... }:
 {
   description = "ojsef39 base nix configuration";
   inputs = {
@@ -5,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
   };
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, vars, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:
   {
     sharedModules = [
       ./nix/core.nix
