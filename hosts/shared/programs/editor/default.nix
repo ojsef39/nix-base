@@ -32,7 +32,7 @@ in
     };
   };
 
-  home.file = {
+  file = {
     # Ensure the .local/share/nvim directory exists with correct permissions
     ".local/share/nvim/.keep" = {
       text = "";
