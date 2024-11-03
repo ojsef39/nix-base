@@ -8,7 +8,9 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin }: {
-    sharedModules = {};
+    sharedModules = {
+        system.stateVersion = 5;
+      };
     macModules = {};
     linuxModules = {};
   };
