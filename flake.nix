@@ -15,9 +15,9 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = { inherit inputs; };
+          users.${vars.user} = import ./hosts/shared/import.nix;
         };
       }
-      ./hosts/shared/import.nix
     ];
     macModules = [
       ./hosts/darwin/import.nix
