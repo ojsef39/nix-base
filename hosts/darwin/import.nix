@@ -4,8 +4,8 @@
 {
     imports =
     [
-        ./apps.nix
-        ./system.nix
-        ./host-users.nix
+        # ./apps.nix
+        # ./system.nix
+        # ./host-users.nix
     ];
 }
