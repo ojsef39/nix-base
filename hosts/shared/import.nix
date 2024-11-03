@@ -14,15 +14,13 @@ let
 in
 {
   nixpkgs.config.allowUnfree = true;
+  imports = programModules;
 
-  home-manager.users.${vars.user} = {
-    home.stateVersion = "24.05";
-    home.homeDirectory = homeDirectory;
+  home = {
+    inherit homeDirectory;
+    stateVersion = "24.05";
+  };
 
-    programs.home-manager = {
-      enable = true;
-    };
-
-    imports = programModules;
+  programs.home-manager.enable = true;
   };
 }
