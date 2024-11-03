@@ -14,11 +14,13 @@ let
   user = "${vars.user}";
   email = "${vars.email}";
 
+  tracedUser = builtins.trace user;
+
 in
 {
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${user} = {
+  home-manager.users.${tracedUser} = {
     home.stateVersion = "24.05";
     home.homeDirectory = homeDirectory;
 
