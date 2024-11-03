@@ -10,6 +10,7 @@
   outputs = { self, nixpkgs, home-manager, darwin }: {
     sharedModules = {
         system.stateVersion = 5;
+        services.nix-daemon.enable = true;
       };
     macModules = {};
     linuxModules = {};
