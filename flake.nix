@@ -20,7 +20,7 @@
               inherit nixpkgs home-manager darwin;
             };
           };
-          users.${builtins.getEnv "USER"} = import ./home;
+          users.${builtins.getEnv "USER"} = import ./hosts/shared;
         };
       }
       ./hosts/shared/import.nix
