@@ -1,4 +1,4 @@
-{ vars, pkgs, ... }:
+{ vars, pkgs, lib, ... }:
 let
   # Get all immediate subdirectories of ./programs
   programDirs = builtins.attrNames (builtins.readDir ./programs);
@@ -11,16 +11,13 @@ let
     then "/Users/${vars.user}"
     else "/home/${vars.user}";
 
-  # Trace the value of homeDirectoryPath
-  tracedHomeDirectory = builtins.trace "homeDirectory: ${homeDirectory}" homeDirectory;
-
 in
 {
   nixpkgs.config.allowUnfree = true;
   imports = programModules;
 
   home = {
-    homeDirectory = tracedHomeDirectory;
+    homeDirectory = lib.mkForce homeDirectory;
     stateVersion = "24.05";
   };
 
