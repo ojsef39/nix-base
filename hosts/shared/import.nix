@@ -7,11 +7,11 @@ let
   programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
 
   # Determine home directory based on system
-  homeDirectory = if pkgs.stdenv.isDarwin
+  homeDirectoryPath = if pkgs.stdenv.isDarwin
     then "/Users/${vars.user}"
     else "/home/${vars.user}";
 
-  homeDirectoryPath = builtins.toPath homeDirectory;
+  # homeDirectoryPath = builtins.toPath homeDirectory;
 
 in
 {
