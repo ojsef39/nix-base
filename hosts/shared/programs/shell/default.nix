@@ -1,4 +1,4 @@
-{ config, pkgs, lib, vars, ... }:
+{ pkgs, lib, vars, ... }:
 
 {
   # Required packages
