@@ -20,7 +20,7 @@ in
   imports = programModules;
 
   home = {
-    homeDirectory = builtins.toPath tracedHomeDirectory;
+    homeDirectory = tracedHomeDirectory;
     stateVersion = "24.05";
   };
 
