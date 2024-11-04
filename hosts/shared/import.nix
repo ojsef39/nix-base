@@ -11,7 +11,7 @@ let
     then "/Users/${vars.user}"
     else "/home/${vars.user}";
 
-  homeDirectory = builtins.toPath homeDirectory;
+  homeDirectoryPath = builtins.toPath homeDirectory;
 
 in
 {
@@ -19,7 +19,7 @@ in
   imports = programModules;
 
   home = {
-    inherit homeDirectory;
+    homeDirectory = homeDirectoryPath;
     stateVersion = "24.05";
   };
 
