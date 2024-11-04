@@ -226,9 +226,9 @@
 
   # Ensure tmux plugin manager is installed
   home.file.".tmux/plugins/tpm".source = pkgs.fetchgit {
-    owner = "tmux-plugins";
-    repo = "tpm";
-    rev = "3.1.0";
+    url= "https://github.com/tmux-plugins/tpm";
+    rev = "v3.1.0";
     sha256 = "f92bf5db248417e6f62df1debc0dfe4f071f36f9c66bdf11c37c9c5712b06915";
+    leaveDotGit = false;
   };
 }
