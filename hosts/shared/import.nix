@@ -23,7 +23,6 @@ let
 
 in
 {
-  nixpkgs.config.allowUnfree = true;
   imports = programModules;
 
   home = {

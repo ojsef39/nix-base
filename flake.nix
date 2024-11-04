@@ -18,6 +18,10 @@
           users.${vars.user} = import ./hosts/shared/import.nix;
         };
       })
+      # module to allow all unfree packages
+      ({ config, pkgs, ... }: {
+        nixpkgs.config.allowUnfree = true;
+      })
     ];
     macModules = [
       home-manager.darwinModules.home-manager

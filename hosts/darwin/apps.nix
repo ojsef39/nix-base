@@ -1,6 +1,5 @@
-{ pkgs, lib, vars, ... }:
+{ pkgs, lib, vars, ... }: {
 
-{
   home.packages = with pkgs; [
     # CLI utilities
     # _1password-cli  # Password manager
@@ -15,8 +14,8 @@
     utm             # Virtualization
   ];
 
-  home.file."Library/Preferences/com.googlecode.iterm2.plist" = {
-    source = ./apps/iterm2/com.googlecode.iterm2.plist;
+  home.file."Library/Preferences/com.googlecode.iterm2.private.plist" = {
+    source = ./apps/iterm2/com.googlecode.iterm2.private.plist;
     target = "link";
   };
 }
