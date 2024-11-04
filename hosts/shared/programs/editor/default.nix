@@ -16,11 +16,13 @@ in
     vimAlias = lib.mkDefault true;
 
     extraPackages = with pkgs; [
-      ripgrep
+      eza 
       fd
+      lazygit
       tree-sitter
-      git
       fzf
+      git
+      ripgrep
     ];
   };
 
