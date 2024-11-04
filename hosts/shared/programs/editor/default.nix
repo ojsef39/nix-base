@@ -15,16 +15,21 @@ in
     viAlias = lib.mkDefault true;
     vimAlias = lib.mkDefault true;
 
+    # Packages used in nvim
     extraPackages = with pkgs; [
-      eza 
       fd
-      lazygit
       tree-sitter
-      fzf
-      git
-      ripgrep
     ];
   };
+
+  # Packages used in nvim but also outside of it
+  home.packages = with pkgs; [
+    ripgrep
+    git
+    fzf
+    eza
+    lazygit
+  ];
 
   # Copy your Neovim configuration
   xdg.configFile = {
