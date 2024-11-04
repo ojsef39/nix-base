@@ -7,11 +7,12 @@ let
   programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
 
   # Determine home directory based on system
-  homeDirectoryPath = if pkgs.stdenv.isDarwin
+  homeDirectory = if pkgs.stdenv.isDarwin
     then "/Users/${vars.user}"
     else "/home/${vars.user}";
 
-  # homeDirectoryPath = builtins.toPath homeDirectory;
+  # Trace the value of homeDirectoryPath
+  tracedHomeDirectory = builtins.trace "homeDirectory: ${homeDirectory}" homeDirectory;
 
 in
 {
@@ -19,7 +20,7 @@ in
   imports = programModules;
 
   home = {
-    homeDirectory = homeDirectoryPath;
+    homeDirectory = tracedHomeDirectory;
     stateVersion = "24.05";
   };
 
