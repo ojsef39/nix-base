@@ -10,16 +10,17 @@ let
 in
 {
   programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
+    enable = lib.mkDefault true;
+    defaultEditor = lib.mkDefault true;
+    viAlias = lib.mkDefault true;
+    vimAlias = lib.mkDefault true;
 
     extraPackages = with pkgs; [
       ripgrep
       fd
       tree-sitter
       git
+      fzf
     ];
   };
 

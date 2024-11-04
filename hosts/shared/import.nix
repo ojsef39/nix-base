@@ -1,10 +1,20 @@
 { vars, pkgs, lib, ... }:
 let
-  # Get all immediate subdirectories of ./programs
-  programDirs = builtins.attrNames (builtins.readDir ./programs);
+  # Check if programs directory exists
+  hasProgramsDir = builtins.pathExists ./programs;
 
-  # Map each directory to its default.nix path
-  programModules = map (dir: ./programs/${dir}/default.nix) programDirs;
+  # Get all immediate subdirectories of ./programs if it exists, otherwise empty list
+  programDirs = if hasProgramsDir
+    then builtins.attrNames (builtins.readDir ./programs)
+    else [];
+
+  # Filter only directories that actually have a default.nix
+  validProgramDirs = builtins.filter
+    (dir: builtins.pathExists (./programs + "/${dir}/default.nix"))
+    programDirs;
+
+  # Map each valid directory to its default.nix path
+  programModules = map (dir: ./programs/${dir}/default.nix) validProgramDirs;
 
   # Determine home directory based on system
   homeDirectory = if pkgs.stdenv.isDarwin
