@@ -7,7 +7,6 @@
     fzf
     zoxide
     tmux
-    neovim
     fastfetch
     git
     nodejs
