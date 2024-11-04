@@ -18,15 +18,6 @@
           users.${vars.user} = import ./hosts/shared/import.nix;
         };
       })
-      {
-        programs.zsh = {
-          enable = true;
-
-          shellAliases = {
-            open = "close"; # Neovim quick alias
-          };
-        };
-      }
     ];
     macModules = [
       ./hosts/darwin/import.nix
