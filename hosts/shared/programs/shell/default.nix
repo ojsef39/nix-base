@@ -72,7 +72,7 @@
       compdef _files n
 
       # Load iTerm2 shell integration
-      test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+      test -e "''${HOME}/.iterm2_shell_integration.zsh" && source "''${HOME}/.iterm2_shell_integration.zsh"
 
       # Source MEGA completion
       source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
@@ -116,7 +116,6 @@
     baseIndex = 1;
     clock24 = true;
     customPaneNavigationAndResize = true;
-    enableZshIntegration = true;
     escapeTime = 0;
     historyLimit = 10000;
     keyMode = "vi";
@@ -124,7 +123,6 @@
     prefix = "C-Space";
     terminal = "xterm-256color";
     plugins = with pkgs.tmuxPlugins; [
-      tpm
       continuum
       copycat
       open
@@ -216,12 +214,12 @@
 
       # Window status
       set-window-option -g window-status-separator ""
-      set-window-option -g window-status-current-format ''
-      set-window-option -g window-status-format ''
-    '';
+      set-window-option -g window-status-current-format ""
+      set-window-option -g window-status-format ""
+      '';
+    };
   };
   
-  # Create zsh_scripts directory and add a placeholder file
   home.file = {
     ".zsh_scripts/.keep".text = "";  # Creates an empty .keep file to ensure directory exists
   };
@@ -230,5 +228,6 @@
   home.file.".tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
     owner = "tmux-plugins";
     repo = "tpm";
+    rev = "master";
   };
 }
