@@ -28,7 +28,6 @@ in
     ripgrep
     git
     fzf
-    eza
     lazygit
   ];
 
