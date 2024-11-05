@@ -32,8 +32,8 @@
         "/opt/homebrew/bin"
         "~/go/bin"
         "$HOME/Library/Python/3.12/bin"
-        "/Applications/MEGAcmd.app/Contents/MacOS"
-        "$HOME/CodeProjects/github.com/ojsef39/commit-oracle"
+        "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
+        "$HOME/CodeProjects/github.com/ojsef39/commit-oracle" ##TODO: Ensure script is actually there
       ];
       ZSH = "/Users/${vars.user}/.oh-my-zsh";
       PYTHON = "/usr/bin/python3";
@@ -41,6 +41,7 @@
       GCL_MAX_JOB_NAME_PADDING = "30";
     };
 
+    ## TODO: Check if ZSH and iterm2 shell integration get right var templated in
     # Spaceship prompt configuration
     initExtra = ''
       SPACESHIP_CHAR_SYMBOL="🚀 "

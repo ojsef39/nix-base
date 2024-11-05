@@ -4,25 +4,27 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
+    yuki.url = "github:frostplexx/yuki";
   };
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
   {
     sharedModules = [
       ./nix/core.nix
       home-manager.darwinModules.home-manager
-      ({ vars, ... }: {
+      ({ vars, system, ... }: {  # system is now available here
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = { inherit vars inputs; };
           users.${vars.user} = import ./hosts/shared/import.nix;
         };
+        environment.systemPackages = [ yuki.packages.${system.darwin.aarch}.default ];
       })
-      # module to allow all unfree packages
       ({ config, pkgs, ... }: {
         nixpkgs.config.allowUnfree = true;
       })
     ];
+
     macModules = [
       home-manager.darwinModules.home-manager
       ({ vars, ... }: {
