@@ -24,6 +24,7 @@
     # macOS-specific apps and those not available/stable in nixpkgs
     casks = [
       "1password"
+      "iTerm2"
     ];
   };
 }

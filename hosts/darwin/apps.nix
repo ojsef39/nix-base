@@ -8,7 +8,6 @@
     nmap
 
     # GUI Applications
-    iterm2          # Terminal
     obsidian        # Note-taking
     raycast         # Spotlight replacement
     utm             # Virtualization
