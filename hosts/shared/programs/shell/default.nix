@@ -29,15 +29,11 @@
     sessionVariables = {
       PATH = lib.concatStringsSep ":" [
         "$HOME/bin"
-        "/usr/local/bin"
-        "/opt/homebrew/bin"
-        "/bin"
-        "/usr/bin"
         "~/go/bin"
         "$HOME/Library/Python/3.12/bin"
         "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
         "$HOME/CodeProjects/github.com/ojsef39/commit-oracle" ##TODO: Ensure script is actually there
-      ];
+      ] + ":" + builtins.getEnv "PATH"; # Append to existing PATH
       ZSH = "/Users/${vars.user}/.oh-my-zsh";
       PYTHON = "/usr/bin/python3";
       GCL_TIMESTAMPS = "true";
