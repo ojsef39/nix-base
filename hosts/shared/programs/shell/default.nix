@@ -42,7 +42,7 @@
     sessionVariables = {
       PATH = lib.concatStringsSep ":" [
         "$HOME/Library/Python/3.12/bin"
-        "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
+        # "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
         "$HOME/CodeProjects/github.com/ojsef39/commit-oracle" ##TODO: Ensure script is actually there
         "$PATH"
       ];
@@ -58,6 +58,10 @@
       # Initialize spaceship prompt
       source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
       autoload -U promptinit; promptinit
+      bindkey -r "^j"
+
+      eval "$(fzf --zsh)"
+      eval "$(zoxide init --cmd cd zsh)"
 
       SPACESHIP_CHAR_SYMBOL="🚀 "
       SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
@@ -90,7 +94,7 @@
       test -e "''${HOME}/.iterm2_shell_integration.zsh" && source "''${HOME}/.iterm2_shell_integration.zsh"
 
       # Source MEGA completion
-      source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
+      # source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
 
       # Source additional scripts
       if [ -d $HOME/.zsh_scripts ]; then
@@ -98,6 +102,8 @@
           source $file
         done
       fi
+      fastfetch
+      tmux list-sessionstmux list-sessions
     '';
 
     # Aliases
