@@ -10,11 +10,9 @@
     git
     nodejs
     python3
-    spaceship-prompt
     tmux
     yarn
     zoxide
-    zsh-fzf-tab
   ];
 
   programs.zsh = {
@@ -23,9 +21,22 @@
     # Oh My Zsh configuration
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "node" "npm" "github" "fzf-tab" ];
-      theme = "spaceship";
+      plugins = [ "git" "node" "npm" "github" ];
     };
+
+    # Install and configure plugins separately
+    plugins = [
+      {
+        name = "zsh-fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+      {
+        name = "spaceship-prompt";
+        src = pkgs.spaceship-prompt;
+        file = "share/zsh/site-functions/prompt_spaceship_setup";
+      }
+    ];
 
     # Environment variables
     sessionVariables = {
@@ -44,6 +55,10 @@
     ## TODO: Check if ZSH and iterm2 shell integration get right var templated in
     # Spaceship prompt configuration
     initExtra = ''
+      # Initialize spaceship prompt
+      source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
+      autoload -U promptinit; promptinit
+
       SPACESHIP_CHAR_SYMBOL="🚀 "
       SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
       SPACESHIP_DIR_PREFIX="🗂  "
@@ -221,7 +236,7 @@
   };
   
   home.file = {
-    ".zsh_scripts/.keep".text = "";  # Creates an empty .keep file to ensure directory exists
+    ".zsh_scripts/keep.zsh".text = "";  # Creates an empty .keep file to ensure directory exists
   };
 
   # Ensure tmux plugin manager is installed
