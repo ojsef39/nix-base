@@ -3,16 +3,18 @@
 {
   # Required packages
   home.packages = with pkgs; [
+    coreutils
     eza
-    fzf
-    zoxide
-    tmux
     fastfetch
+    fzf
     git
     nodejs
-    yarn
     python3
-    coreutils
+    spaceship-prompt
+    tmux
+    yarn
+    zoxide
+    zsh-fzf-tab
   ];
 
   programs.zsh = {
