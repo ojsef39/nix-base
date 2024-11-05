@@ -12,6 +12,7 @@
     nodejs
     yarn
     python3
+    coreutils
   ];
 
   programs.zsh = {
@@ -30,6 +31,8 @@
         "$HOME/bin"
         "/usr/local/bin"
         "/opt/homebrew/bin"
+        "/bin"
+        "/usr/bin"
         "~/go/bin"
         "$HOME/Library/Python/3.12/bin"
         "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
