@@ -103,7 +103,7 @@
         done
       fi
       fastfetch
-      tmux list-sessionstmux list-sessions
+      tmux list-sessions
     '';
 
     # Aliases
