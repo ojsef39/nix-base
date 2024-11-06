@@ -69,7 +69,7 @@
       active_tab_background = "#8aadf4";
 
       # Remote control
-      startup_session = "./startup.conf";
+      startup_session = "startup.conf";
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/mykitty";
 
@@ -98,17 +98,17 @@
       "ctrl+shift+j" = "move_window down";
       "ctrl+shift+k" = "move_window up";
       "ctrl+shift+l" = "move_window right";
-      "ctrl+j" = "kitten ~/dotfiles/home/programs/kitty/pass_keys.py bottom ctrl+j";
-      "ctrl+k" = "kitten ~/dotfiles/home/programs/kitty/pass_keys.py top    ctrl+k";
-      "ctrl+h" = "kitten ~/dotfiles/home/programs/kitty/pass_keys.py left   ctrl+h";
-      "ctrl+l" = "kitten ~/dotfiles/home/programs/kitty/pass_keys.py right  ctrl+l";
+      "ctrl+j" = "kitten ~/.config/kitty/scripts/pass_keys.py bottom ctrl+j";
+      "ctrl+k" = "kitten ~/.config/kitty/scripts/pass_keys.py top    ctrl+k";
+      "ctrl+h" = "kitten ~/.config/kitty/scripts/pass_keys.py left   ctrl+h";
+      "ctrl+l" = "kitten ~/.config/kitty/scripts/pass_keys.py right  ctrl+l";
       "ctrl+shift+left" = "resize_window wider 5";
       "ctrl+shift+right" = "resize_window narrower 5";
       "ctrl+shift+up" = "resize_window taller";
       "ctrl+shift+down" = "resize_window shorter";
       "ctrl+shift+x" = "close_window";
       "ctrl+shift+m" = "launch --type=tab --cwd=current --copy-env --title Yazi -- zsh -il -c \"yazi\"";
-      "ctrl+shift+p" = "launch --title \"Project Selector\" --copy-env --type=overlay zsh -il -c \"~/.config/kitty/project_selector.sh\"";
+      "ctrl+shift+p" = "launch --title \"Project Selector\" --copy-env --type=overlay zsh -il -c \"~/.config/kitty/scripts/project_selector.sh\"";
     };
 
     # Extra configuration to ensure catpuccin theme is included
@@ -119,13 +119,13 @@
 
   xdg.configFile = {
     # Copy pass_keys.py
-    "kitty/pass_keys.py".source = ./scripts/pass_keys.py;
+    "kitty/scripts/pass_keys.py".source = ./scripts/pass_keys.py;
 
     # Copy theme
-    # "kitty/themes/catpuccin.conf".source = ./themes/catpuccin.conf;
+    "kitty/themes/catpuccin.conf".source = ./themes/catpuccin.conf;
 
     # Copy icon
-    "kitty/kitty.app.png".source = ./themes/kitty.app.png;
+    "kitty/themes/kitty.app.png".source = ./themes/kitty.app.png;
 
     # If you have a project selector script
     # "kitty/project_selector.sh".source = ./project_selector.sh;
