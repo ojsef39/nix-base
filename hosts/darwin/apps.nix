@@ -8,6 +8,7 @@
     nmap
 
     # GUI Applications
+    kitty           # Terminal emulator
     obsidian        # Note-taking
     raycast         # Spotlight replacement
     utm             # Virtualization
