@@ -15,5 +15,6 @@
 
   home.file."Library/Preferences/com.googlecode.iterm2.plist" = {
     source = ./apps/iterm2/com.googlecode.iterm2.plist;
+    target = "Library/Preferences/com.googlecode.iterm2.plist";
   };
 }
