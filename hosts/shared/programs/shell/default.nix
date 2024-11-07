@@ -113,9 +113,6 @@
         done
       }
 
-      # Load iTerm2 shell integration
-      test -e "''${HOME}/.iterm2_shell_integration.zsh" && source "''${HOME}/.iterm2_shell_integration.zsh"
-
       # Source MEGA completion
       # source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
 
