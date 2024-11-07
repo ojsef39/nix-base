@@ -5,6 +5,7 @@
     # _1password-cli  # Password manager
     btop
     fastfetch
+    kubectl
     nmap
 
     # GUI Applications
