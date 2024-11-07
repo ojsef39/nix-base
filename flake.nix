@@ -10,6 +10,7 @@
   {
     sharedModules = [
       ./nix/core.nix
+##TODO: Do i need homemanager again here or is it sufficient if its called by the parent?
       home-manager.darwinModules.home-manager
       ({ vars, system, ... }: {  # system is now available here
         home-manager = {
