@@ -105,9 +105,9 @@
 
       check_repos() {
         find . -type d -name ".git" | while read gitdir; do
-          repo_dir="$(dirname "$gitdir")"
-          if [ -n "$(git -C "$repo_dir" status --porcelain)" ]; then
-            echo "changes in ${repo_dir#./}"
+          repo_dir="\$(dirname "$gitdir")"
+          if [ -n "\$(git -C \"\$repo_dir\" status --porcelain)" ]; then
+            echo "changes in \${repo_dir#./}"
           fi
         done
       }
