@@ -15,12 +15,13 @@
     zoxide
   ];
 
+  ##TODO: do you really have to still install it when its enabled?
   programs.zsh = {
-    enable = true;
+    enable = lib.mkDefault true;
     
     # Oh My Zsh configuration
     oh-my-zsh = {
-      enable = true;
+      enable = lib.mkDefault true;
       plugins = [ "git" "node" "npm" "github" ];
     };
 
@@ -46,7 +47,6 @@
         "$HOME/CodeProjects/github.com/ojsef39/commit-oracle" ##TODO: Ensure script is actually there
         "$PATH"
       ];
-      ZSH = "/Users/${vars.user}/.oh-my-zsh";
       PYTHON = "/usr/bin/python3";
       GCL_TIMESTAMPS = "true";
       GCL_MAX_JOB_NAME_PADDING = "30";
@@ -117,7 +117,7 @@
   # Additional program configurations
   programs = {
     fzf = {
-      enable = true;
+      enable = lib.mkDefault true;
       enableZshIntegration = true;
       defaultCommand = "fd --type f";  # Faster than find
       defaultOptions = [
@@ -129,11 +129,11 @@
       ];
     };
     zoxide = {
-      enable = true;
+      enable = lib.mkDefault true;
       enableZshIntegration = true;
     };
     tmux = {
-    enable = true;
+    enable = lib.mkDefault true;
     baseIndex = 1;
     clock24 = true;
     customPaneNavigationAndResize = true;
