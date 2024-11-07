@@ -47,6 +47,7 @@
       "pdk"
       "poe"
       "scroll-reverser"
+      "kitty"
       # "orbstack"
     ];
   };
