@@ -88,6 +88,7 @@
       modify_font = "cell_height 100%";
     };
 
+    ##TODO: Add mouse buttons to switch tabs
     # Keybindings
     keybindings = {
       "ctrl+shift+-" = "launch --location=hsplit --cwd=current";

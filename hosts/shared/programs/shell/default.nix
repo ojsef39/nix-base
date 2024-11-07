@@ -61,9 +61,6 @@
       autoload -U promptinit; promptinit
       bindkey -r "^j"
 
-      eval "$(fzf --zsh)"
-      eval "$(zoxide init --cmd cd zsh)"
-
       SPACESHIP_CHAR_SYMBOL="🚀 "
       SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
       SPACESHIP_DIR_PREFIX="🗂  "
@@ -151,6 +148,7 @@
     zoxide = {
       enable = lib.mkDefault true;
       enableZshIntegration = true;
+      options = ["--cmd cd"];
     };
     tmux = {
     enable = lib.mkDefault true;
