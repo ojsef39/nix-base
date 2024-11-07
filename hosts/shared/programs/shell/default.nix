@@ -90,6 +90,28 @@
       }
       compdef _files n
 
+      t() {
+          local session_name=$(echo "$PWD" | rev | cut -d'/' -f1-5 | rev | tr '/' '-' | tr '.' '-' | tr ':' '-')
+          if [ -z "$TMUX" ]; then
+              if tmux has-session -t "$session_name" 2>/dev/null; then
+                  tmux attach-session -t "$session_name"
+              else
+                  tmux new-session -s "$session_name"
+              fi
+          else
+            echo "Already in a tmux session"
+          fi
+      }
+
+      check_repos() {
+        find . -type d -name ".git" | while read gitdir; do
+          repo_dir="$(dirname "$gitdir")"
+          if [ -n "$(git -C "$repo_dir" status --porcelain)" ]; then
+            echo "changes in ${repo_dir#./}"
+          fi
+        done
+      }
+
       # Load iTerm2 shell integration
       test -e "''${HOME}/.iterm2_shell_integration.zsh" && source "''${HOME}/.iterm2_shell_integration.zsh"
 
