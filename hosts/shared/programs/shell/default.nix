@@ -42,6 +42,7 @@
     # Environment variables
     sessionVariables = {
       PATH = lib.concatStringsSep ":" [
+        "/opt/homebrew/bin"
         "$HOME/Library/Python/3.12/bin"
         # "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
         "$HOME/CodeProjects/github.com/ojsef39/commit-oracle" ##TODO: Ensure script is actually there
