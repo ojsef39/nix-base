@@ -264,6 +264,30 @@
           set-window-option -g window-status-separator ""
           set-window-option -g window-status-current-format ""
           set-window-option -g window-status-format ""
+
+          # Word navigation with Alt/Option
+          bind-key -n M-Left send-keys M-b
+          bind-key -n M-Right send-keys M-f
+ 
+          # Word navigation with Alt/Option
+          bind-key -n M-Left send-keys M-b
+          bind-key -n M-Right send-keys M-f
+
+          # Line navigation with Cmd (beginning/end of line)
+          bind-key -n C-Left send-keys C-a
+          bind-key -n C-Right send-keys C-e
+
+          # Home and End keys
+          bind-key -n Home send-keys C-a
+          bind-key -n End send-keys C-e
+
+          # Copy mode navigation
+          bind-key -T copy-mode-vi M-Left send-keys -X previous-word
+          bind-key -T copy-mode-vi M-Right send-keys -X next-word
+          bind-key -T copy-mode-vi C-Left send-keys -X start-of-line
+          bind-key -T copy-mode-vi C-Right send-keys -X end-of-line
+          bind-key -T copy-mode-vi Home send-keys -X start-of-line
+          bind-key -T copy-mode-vi End send-keys -X end-of-line
           '';
     };
   };

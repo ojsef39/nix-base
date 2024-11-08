@@ -86,7 +86,10 @@
         then "14"
         else "10";
       modify_font = "cell_height 100%";
+
+      macos_option_as_alt = "both";
     };
+
 
     ##TODO: Add mouse buttons to switch tabs
     # Keybindings
@@ -103,13 +106,17 @@
       "ctrl+k" = "kitten ~/.config/kitty/scripts/pass_keys.py top    ctrl+k";
       "ctrl+h" = "kitten ~/.config/kitty/scripts/pass_keys.py left   ctrl+h";
       "ctrl+l" = "kitten ~/.config/kitty/scripts/pass_keys.py right  ctrl+l";
-      "ctrl+shift+left" = "resize_window wider 5";
+      "ctrl+shift+left" = "resize_windo wider 5";
       "ctrl+shift+right" = "resize_window narrower 5";
       "ctrl+shift+up" = "resize_window taller";
       "ctrl+shift+down" = "resize_window shorter";
       "ctrl+shift+x" = "close_window";
       "ctrl+shift+m" = "launch --type=tab --cwd=current --copy-env --title Yazi -- zsh -il -c \"yazi\"";
       "ctrl+shift+p" = "launch --title \"Project Selector\" --copy-env --type=overlay zsh -il -c \"~/.config/kitty/scripts/project_selector.sh\"";
+      "cmd+left" = "send_text all \\x01";
+      "cmd+right" = "send_text all \\x05";
+      "alt+left" = "send_text all \\x1b[1;3D";
+      "alt+right" = "send_text all \\x1b[1;3C";
       "cmd+1" = "goto_tab 1";
       "cmd+2" = "goto_tab 2";
       "cmd+3" = "goto_tab 3";
@@ -138,7 +145,7 @@
     # Copy icon
     "kitty/themes/kitty.app.png".source = ./themes/kitty.app.png;
 
-    If you have a project selector script
+    # If you have a project selector script
     "kitty/scripts/project_selector.sh".source = ./scripts/project_selector.sh;
   };
 }

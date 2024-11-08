@@ -29,3 +29,10 @@ vim.keymap.set(
   ":lua vim.diagnostic.open_float(nil, opts) <cr>",
   { desc = "Floating Error thingy", silent = true }
 )
+
+-- Add text navigation keymaps
+-- Terminal key mappings for Alt/Option + arrows (word navigation)
+vim.keymap.set("n", "<M-Left>", "b", { noremap = true })
+vim.keymap.set("n", "<M-Right>", "w", { noremap = true })
+vim.keymap.set("i", "<M-Left>", "<C-o>b", { noremap = true })
+vim.keymap.set("i", "<M-Right>", "<C-o>w", { noremap = true })
