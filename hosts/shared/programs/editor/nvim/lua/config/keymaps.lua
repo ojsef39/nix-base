@@ -31,9 +31,16 @@ vim.keymap.set(
 )
 
 -- Add text navigation keymaps
--- Terminal key mappings for Alt/Option + arrows (word navigation)
-vim.keymap.set("n", "<M-Left>", "b", { noremap = true })
-vim.keymap.set("n", "<M-Right>", "w", { noremap = true })
-vim.keymap.set("i", "<M-Left>", "<C-o>b", { noremap = true })
-vim.keymap.set("i", "<M-Right>", "<C-o>w", { noremap = true })
+-- Map Home and End keys in normal mode
+vim.keymap.set('n', '<Home>', '^', { noremap = true, silent = true })
+vim.keymap.set('n', '<End>', '$', { noremap = true, silent = true })
 
+-- Map Home and End keys in insert mode
+vim.keymap.set('i', '<Home>', '<C-o>^', { noremap = true, silent = true })
+vim.keymap.set('i', '<End>', '<C-o>$', { noremap = true, silent = true })
+
+-- Handle escape sequences sent by tmux for Home and End keys
+vim.keymap.set('', '<Esc>[H', '<Home>', { noremap = true, silent = true })
+vim.keymap.set('', '<Esc>[F', '<End>', { noremap = true, silent = true })
+vim.keymap.set('', '<Esc>OH', '<Home>', { noremap = true, silent = true })
+vim.keymap.set('', '<Esc>OF', '<End>', { noremap = true, silent = true })
