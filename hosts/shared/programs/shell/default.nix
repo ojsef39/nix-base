@@ -278,6 +278,7 @@
           bind-key -n C-Right send-keys C-e
 
           # Home and End keys
+          option -g xterm-keys on
           bind-key -n Home send-keys C-a
           bind-key -n End send-keys C-e
 

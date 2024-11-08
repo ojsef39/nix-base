@@ -36,8 +36,4 @@ vim.keymap.set("n", "<M-Left>", "b", { noremap = true })
 vim.keymap.set("n", "<M-Right>", "w", { noremap = true })
 vim.keymap.set("i", "<M-Left>", "<C-o>b", { noremap = true })
 vim.keymap.set("i", "<M-Right>", "<C-o>w", { noremap = true })
--- Map Home and End keys to move to the start and end of the line
-vim.keymap.set('n', '<Home>', '^', { noremap = true, silent = true })
-vim.keymap.set('n', '<End>', '$', { noremap = true, silent = true })
-vim.keymap.set('i', '<Home>', '<C-o>^', { noremap = true, silent = true })
-vim.keymap.set('i', '<End>', '<C-o>$', { noremap = true, silent = true })
+
