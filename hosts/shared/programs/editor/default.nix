@@ -22,12 +22,9 @@ in
     ];
   };
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
-
   # Packages used in nvim but also outside of it
   home.packages = with pkgs; [
+    nerdfonts
     ripgrep
     git
     fzf
