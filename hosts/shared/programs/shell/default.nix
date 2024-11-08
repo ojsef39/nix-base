@@ -56,8 +56,6 @@
     # Spaceship prompt configuration
     initExtra = ''
       # Initialize spaceship prompt
-      zmodload zsh/zprof
-
       source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
       autoload -U promptinit; promptinit
       bindkey -r "^j"
@@ -122,8 +120,6 @@
       fi
       fastfetch
       tmux list-sessions
-
-      zprof
     '';
 
     # Aliases
@@ -155,6 +151,7 @@
     };
     tmux = {
     enable = lib.mkDefault true;
+    shell = "${pkgs.zsh}/bin/zsh";
     baseIndex = 1;
     clock24 = true;
     customPaneNavigationAndResize = true;
@@ -181,7 +178,6 @@
       # Terminal overrides
       set-option -ga terminal-overrides ",xterm-256color:Tc"
       set-option -sa terminal-features  ",xterm-256color:RBG"
-      set-option -g default-shell "${pkgs.zsh}/bin/zsh"
 
       # Clipboard settings
       set-option -s set-clipboard on
