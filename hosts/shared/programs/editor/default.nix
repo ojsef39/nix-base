@@ -24,11 +24,11 @@ in
 
   # Packages used in nvim but also outside of it
   home.packages = with pkgs; [
+    fzf
+    git
+    lazygit
     nerdfonts
     ripgrep
-    git
-    fzf
-    lazygit
   ];
 
   # Copy your Neovim configuration
