@@ -1,6 +1,6 @@
 { pkgs, lib, vars, ... }: 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # CLI utilities
     # _1password-cli  # Password manager
     btop
