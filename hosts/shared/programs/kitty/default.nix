@@ -88,7 +88,6 @@
       modify_font = "cell_height 100%";
     };
 
-    ##TODO: Add mouse buttons to switch tabs
     # Keybindings
     keybindings = {
       "ctrl+shift+-" = "launch --location=hsplit --cwd=current";
@@ -120,8 +119,8 @@
       "cmd+8" = "goto_tab 8";
       "cmd+9" = "goto_tab 9";
       "cmd+0" = "goto_tab 10";
-      "mouse8" = "next_tab";
-      "mouse9" = "previous_tab";
+      "mouse_swipe_left" = "previous_tab";
+      "mouse_swipe_right" = "next_tab";
     };
 
     # Extra configuration to ensure catpuccin theme is included
