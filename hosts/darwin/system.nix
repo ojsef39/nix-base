@@ -22,6 +22,10 @@
     startup.chime = lib.mkDefault true;
 
     defaults = {
+      SoftwareUpdate = {
+        AutomaticallyInstallMacOSUpdates = true;
+      };
+
       NSGlobalDomain = {
         NSAutomaticCapitalizationEnabled = false;
         "com.apple.trackpad.scaling" = 0.6875;
