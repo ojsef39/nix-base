@@ -181,7 +181,7 @@
       # Terminal overrides
       set-option -ga terminal-overrides ",xterm-256color:Tc"
       set-option -sa terminal-features  ",xterm-256color:RBG"
-      set-option -g default-shell "/bin/zsh"
+      set-option -g default-shell "${pkgs.zsh}/bin/zsh"
 
       # Clipboard settings
       set-option -s set-clipboard on
