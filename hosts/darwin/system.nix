@@ -60,8 +60,7 @@
       dock = {
         magnification = true;
         largesize = 62;
-        show-recents = true;
-        static-only = true;
+        show-recents = false;
         tilesize = 54;
         wvous-bl-corner = 11;
         wvous-br-corner = 14;
