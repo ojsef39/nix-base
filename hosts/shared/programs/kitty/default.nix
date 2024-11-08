@@ -120,8 +120,8 @@
       "cmd+8" = "goto_tab 8";
       "cmd+9" = "goto_tab 9";
       "cmd+0" = "goto_tab 10";
-      "mouse4" = "next_tab";
-      "mouse5" = "previous_tab";
+      "mouse8" = "next_tab";
+      "mouse9" = "previous_tab";
     };
 
     # Extra configuration to ensure catpuccin theme is included
