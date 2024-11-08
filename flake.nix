@@ -29,9 +29,7 @@
 
     macModules = [
       home-manager.darwinModules.home-manager
-      ({ vars, ... }: {
-        home-manager.users.${vars.user} = import ./hosts/darwin/import.nix;
-      })
+      ./hosts/darwin/import.nix
       ./hosts/darwin/homebrew.nix
     ];
   };
