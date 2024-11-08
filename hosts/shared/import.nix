@@ -10,7 +10,7 @@ let
 
   # Filter only directories that actually have a default.nix
   validProgramDirs = builtins.filter
-    (dir: builtins.pathExists (./programs + "/${dir}/default.nix"))
+    (dir: builtins.pathExists (./tasks + "/${dir}/default.nix"))
     programDirs;
 
   # Map each valid directory to its default.nix path
