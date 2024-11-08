@@ -18,6 +18,11 @@
   ##TODO: do you really have to still install it when its enabled?
   programs.zsh = {
     enable = lib.mkDefault true;
+
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    autocd = true;
     
     # Oh My Zsh configuration
     oh-my-zsh = {
@@ -148,6 +153,10 @@
       enable = lib.mkDefault true;
       enableZshIntegration = true;
       options = ["--cmd cd"];
+    };
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
     };
     tmux = {
       enable = lib.mkDefault true;
