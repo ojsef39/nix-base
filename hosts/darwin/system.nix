@@ -24,11 +24,11 @@
     defaults = {
       NSGlobalDomain = {
         NSAutomaticCapitalizationEnabled = false;
-        "com.apple.trackpad.scaling" = "0.6875";
-        "com.apple.sound.beep.volume" = 1;
+        "com.apple.trackpad.scaling" = 0.6875;
+        "com.apple.sound.beep.volume" = 1.0;
       };
 
-      ".GlobalPreferences"."com.apple.mouse.scaling" = 4;
+      ".GlobalPreferences"."com.apple.mouse.scaling" = 4.0;
 
       CustomSystemPreferences = {}; # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomSystemPreferences
       CustomUserPreferences = {}; # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomUserPreferences
@@ -67,7 +67,7 @@
         StageManagerHideWidgets = false;
       };
 
-      alf.stealthenabled = true; ##TODO: Move to personal
+      alf.stealthenabled = 1; ##TODO: Move to personal
 
       menuExtraClock = {
         ShowDate = 2;
