@@ -44,8 +44,7 @@
       PATH = lib.concatStringsSep ":" [
         "/opt/homebrew/bin"
         "$HOME/Library/Python/3.12/bin"
-        # "/Applications/MEGAcmd.app/Contents/MacOS" ##TODO: Move to personal
-        "$HOME/CodeProjects/github.com/ojsef39/commit-oracle" ##TODO: Ensure script is actually there
+        "$HOME/CodeProjects/github.com/ojsef39/commit-oracle"
         "$PATH"
       ];
       PYTHON = "/usr/bin/python3";
@@ -57,6 +56,8 @@
     # Spaceship prompt configuration
     initExtra = ''
       # Initialize spaceship prompt
+      zmodload zsh/zprof
+
       source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
       autoload -U promptinit; promptinit
       bindkey -r "^j"
@@ -121,6 +122,8 @@
       fi
       fastfetch
       tmux list-sessions
+
+      zprof
     '';
 
     # Aliases
@@ -178,6 +181,7 @@
       # Terminal overrides
       set-option -ga terminal-overrides ",xterm-256color:Tc"
       set-option -sa terminal-features  ",xterm-256color:RBG"
+      set-option -g default-shell "/bin/zsh"
 
       # Clipboard settings
       set-option -s set-clipboard on

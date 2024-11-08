@@ -83,7 +83,7 @@
       # Set font size based on system because on linux wayland, font zise 13 is huge for some reason
       font_size =
         if pkgs.stdenv.isDarwin
-        then "13"
+        then "14"
         else "10";
       modify_font = "cell_height 100%";
     };
@@ -120,6 +120,8 @@
       "cmd+8" = "goto_tab 8";
       "cmd+9" = "goto_tab 9";
       "cmd+0" = "goto_tab 10";
+      "mouse4" = "next_tab";
+      "mouse5" = "previous_tab";
     };
 
     # Extra configuration to ensure catpuccin theme is included
