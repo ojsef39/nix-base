@@ -197,6 +197,16 @@
             bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
           }
 
+          # Home and End key bindings
+          bind-key -n Home send-keys C-a
+          bind-key -n End send-keys C-e
+          bind-key -n "\e[1~" send-keys C-a  # Alternative Home key code
+          bind-key -n "\e[4~" send-keys C-e  # Alternative End key code
+
+          # Home and End for copy mode
+          bind-key -T copy-mode-vi Home send-keys -X start-of-line
+          bind-key -T copy-mode-vi End send-keys -X end-of-line
+
           # Send prefix to nested session
           bind-key b send-prefix
 
