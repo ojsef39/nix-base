@@ -184,10 +184,6 @@
           unbind C-b
           bind-key C-space send-prefix
 
-          # Terminal overrides
-          set-option -ga terminal-overrides ",xterm-256color:Tc"
-          set-option -sa terminal-features  ",xterm-256color:RBG"
-
           # Clipboard settings
           set-option -s set-clipboard on
 
