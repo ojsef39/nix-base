@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs, vars, lib, ... }:
 
 ###################################################################################
 #
@@ -68,7 +68,7 @@
         wvous-tr-corner = 5; # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.dock.wvous-tl-corner
 
         persistent-others = [
-          "~/Downloads/"
+          "/Users/${vars.user}/Downloads"
         ];
       };
 
