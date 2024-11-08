@@ -44,7 +44,6 @@
       "ChatGPT"
       "Lens"
       "mac-mouse-fix"
-      "pdk"
       "poe"
       "scroll-reverser"
       "kitty"
