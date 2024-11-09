@@ -162,11 +162,10 @@
     yazi = {
       enable = true;
       enableZshIntegration = true;
-      package = pkgs.yazi.override {
-        _7zz = pkgs._7zz.override {
-          useUasm = pkgs.stdenv.isLinux;
-        };
-      };
+      # package = pkgs.yazi.override {
+      #   _7zz = pkgs._7zz.override {
+      #     useUasm = pkgs.stdenv.isLinux;
+      #   };
     };
     tmux = {
       enable = lib.mkDefault true;
