@@ -19,22 +19,10 @@
 
     # Homebrew formulae (CLI tools)
     brews = [
-      "act"
-      "aichat"
       "ca-certificates"
       "coreutils"
-      "ghq"
-      "gitlab-ci-local"
-      "hwatch"
       "keyring"
       "mas"
-      "ncdu"
-      "neovide"
-      "nmap"
-      "speedtest-cli"
-      "whois"
-      "yamllint"
-      "progress"
     ];
 
     # macOS-specific apps and those not available/stable in nixpkgs
@@ -42,14 +30,11 @@
       "1password"
       "1password-cli"
       "ChatGPT"
-      "ChatGPT"
       "Lens"
-      "caffeine"
       "kitty"
       "mac-mouse-fix"
       "poe"
       "scroll-reverser"
-      "stats"
       # "orbstack"
     ];
   };
