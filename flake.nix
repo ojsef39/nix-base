@@ -5,14 +5,20 @@
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
     yuki.url = "github:frostplexx/yuki";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
-  {
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }: 
+    let
+      overlays = [
+        inputs.neovim-nightly-overlay.overlays.default
+      ];
+    in
+    {
     sharedModules = [
       ./nix/core.nix
-##TODO: Do i need homemanager again here or is it sufficient if its called by the parent?
       home-manager.darwinModules.home-manager
-      ({ vars, system, ... }: {  # system is now available here
+      ({ vars, config, inputs, system, ... }: {
+        nixpkgs.overlays = overlays;
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;

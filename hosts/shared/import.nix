@@ -1,4 +1,4 @@
-{ vars, pkgs, lib, ... }:
+{ vars, pkgs, inputs, lib, ... }:
 let
   # Check if programs directory exists
   hasProgramsDir = builtins.pathExists ./programs;

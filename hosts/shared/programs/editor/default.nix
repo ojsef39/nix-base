@@ -9,6 +9,15 @@ let
   };
 in
 {
+  # Packages used in nvim but also outside of it
+  home.packages = with pkgs; [
+    fzf
+    git
+    lazygit
+    nerdfonts
+    ripgrep
+  ];
+
   programs.neovim = {
     enable = lib.mkDefault true;
     defaultEditor = lib.mkDefault true;
@@ -22,15 +31,6 @@ in
     ];
   };
 
-  # Packages used in nvim but also outside of it
-  home.packages = with pkgs; [
-    fzf
-    git
-    lazygit
-    neovim
-    nerdfonts
-    ripgrep
-  ];
 
   # Copy your Neovim configuration
   xdg.configFile = {
