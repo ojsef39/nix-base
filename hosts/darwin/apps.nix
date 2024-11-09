@@ -21,7 +21,6 @@
     yamllint
 
     # GUI Applications
-    caffeine        # Prevents sleep
     discord         ##TODO: Add vencord
     obsidian        # Note-taking
     raycast         # Spotlight replacement
