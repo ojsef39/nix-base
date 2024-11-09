@@ -69,6 +69,7 @@
       active_tab_background = "#8aadf4";
 
       # Remote control
+      remote_kitty = "if-needed";
       startup_session = "startup.conf";
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/mykitty";
