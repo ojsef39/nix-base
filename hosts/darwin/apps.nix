@@ -15,8 +15,11 @@
     neovide
     nmap
     progress
+    retry
     rsync
     speedtest-cli
+    vault
+    wget
     whois
     yamllint
 
