@@ -30,17 +30,6 @@
       };
 
       tag.forceSignAnnotated = lib.mkDefault false;
-
-      # URL rewrites ##TODO: Move to personal
-      # "url \"https://git.mam.dev\"" = {
-      #   insteadOf = "ssh://git@git.mam.dev";
-      # };
-      #
-      # # GHQ configurations
-      # "ghq \"https://github.com/\"" = {
-      #   vcs = "git";
-      #   root = "~/Code/";
-      # };
     };
 
     aliases = {
