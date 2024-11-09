@@ -31,7 +31,6 @@ in
     ];
   };
 
-
   # Copy your Neovim configuration
   xdg.configFile = {
     # Copy the filtered nvim configuration directory
