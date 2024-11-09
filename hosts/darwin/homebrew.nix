@@ -1,15 +1,14 @@
 { pkgs, lib, vars, ... }:
 {
   # Homebrew for macOS-specific and unavailable packages
+  # https://github.com/LnL7/nix-darwin/blob/master/modules/homebrew.nix
   homebrew = {
     enable = true;
     caskArgs.no_quarantine = true;
-
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      # cleanup = "uninstall"; ##TODO: Readd this when all packages are set
-      # cleanup = "zap"; ##TODO: When im done 
+      cleanup = "uninstall"; # "zap" to also remove config files
     };
 
    taps = [];
