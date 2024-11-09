@@ -11,7 +11,9 @@
       cleanup = "uninstall"; # "zap" to also remove config files
     };
 
-   taps = [];
+   taps = [
+    "hashicorp/tap"
+   ];
 
     # Mac App Store apps
     masApps = {};
@@ -21,6 +23,7 @@
       "ca-certificates"
       "coreutils"
       "helm"
+      "hashicorp/tap/vault"
       "keyring"
       "mas"
       "ncdu"
