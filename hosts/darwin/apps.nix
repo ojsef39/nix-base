@@ -6,15 +6,18 @@
     act
     aichat
     btop
+    cargo
     fastfetch
     ghq
     gitlab-ci-local
+    go
     gomplate
     hwatch
     kubectl
     neovide
     nmap
     progress
+    python3Full
     retry
     rsync
     speedtest-cli
