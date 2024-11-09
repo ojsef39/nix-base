@@ -37,9 +37,9 @@
       # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomSystemPreferences
       CustomSystemPreferences = {
         "com.apple.Dock" = {
-            "com.apple.Dock.contents-immutable" = true;
-            "com.apple.Dock.size-immutable" = true;
-            "com.apple.Dock.position-immutable" = true;
+            "com.apple.Dock.contents-immutable" = 1;
+            "com.apple.Dock.size-immutable" = 1;
+            "com.apple.Dock.position-immutable" = 1;
           };
       };
 
