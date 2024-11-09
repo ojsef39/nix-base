@@ -35,16 +35,16 @@
       ".GlobalPreferences"."com.apple.mouse.scaling" = 0.6875;
 
       # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomSystemPreferences
-      CustomSystemPreferences = {
-        "com.apple.Dock" = {
-            "com.apple.Dock.contents-immutable" = 1;
-            "com.apple.Dock.size-immutable" = 1;
-            "com.apple.Dock.position-immutable" = 1;
-          };
-      };
+      CustomSystemPreferences = {};
 
       # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomUserPreferences
-      CustomUserPreferences = {};
+      CustomUserPreferences = {
+        "com.apple.dock" = {
+          "contents-immutable" = 1;
+          "size-immutable" = 1;
+          "position-immutable" = 1;
+        };
+      };
 
       finder = {
         AppleShowAllExtensions = true;
