@@ -16,6 +16,7 @@
     neovide
     nmap
     progress
+    rsync
     speedtest-cli
     whois
     yamllint
