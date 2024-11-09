@@ -40,9 +40,9 @@
       # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomUserPreferences
       CustomUserPreferences = {
         "com.apple.dock" = {
-          "contents-immutable" = 1;
-          "size-immutable" = 1;
-          "position-immutable" = 1;
+          "contents-immutable" = 0;
+          "size-immutable" = 0;
+          "position-immutable" = 0;
         };
       };
 
