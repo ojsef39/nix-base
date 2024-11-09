@@ -34,6 +34,7 @@
       "speedtest-cli"
       "whois"
       "yamllint"
+      "progress"
     ];
 
     # macOS-specific apps and those not available/stable in nixpkgs
@@ -43,10 +44,12 @@
       "ChatGPT"
       "ChatGPT"
       "Lens"
+      "caffeine"
+      "kitty"
       "mac-mouse-fix"
       "poe"
       "scroll-reverser"
-      "kitty"
+      "stats"
       # "orbstack"
     ];
   };

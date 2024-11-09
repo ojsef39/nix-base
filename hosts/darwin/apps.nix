@@ -5,6 +5,8 @@
     # _1password-cli  # Password manager
     btop
     fastfetch
+    gomplate
+    helm
     kubectl
     nmap
 
