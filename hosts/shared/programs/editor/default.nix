@@ -23,11 +23,36 @@ in
     defaultEditor = lib.mkDefault true;
     viAlias = lib.mkDefault true;
     vimAlias = lib.mkDefault true;
+    withNodeJs = lib.mkDefault true;
 
     # Packages used in nvim
     extraPackages = with pkgs; [
       fd
+      nodejs
       tree-sitter
+
+      # LSP
+      vimPlugins.vim-prettier
+      # Go
+      gofumpt
+      goimports-reviser
+      gopls
+      # Python
+      pyright
+      ruff
+      # Lua
+      lua-language-server
+      stylua
+      # Markdown
+      markdownlint-cli2
+      marksman
+      vimPlugins.vim-markdown-toc
+      # Shell
+      shfmt
+      # YAML
+      yaml-language-server
+      # JSON
+      jsonnet-language-server
     ];
   };
 
