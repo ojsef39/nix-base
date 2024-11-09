@@ -12,7 +12,6 @@
     gomplate
     hwatch
     kubectl
-    ncdu
     neovide
     nmap
     progress

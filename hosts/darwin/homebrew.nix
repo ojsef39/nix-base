@@ -21,9 +21,10 @@
     brews = [
       "ca-certificates"
       "coreutils"
-      "keyring"
       "helm"
+      "keyring"
       "mas"
+      "ncdu"
     ];
 
     # macOS-specific apps and those not available/stable in nixpkgs
