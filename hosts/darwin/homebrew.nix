@@ -25,7 +25,6 @@
       "keyring"
       "mas"
       "ncdu"
-      "swiftlint"
     ];
 
     # macOS-specific apps and those not available/stable in nixpkgs
