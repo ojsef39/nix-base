@@ -57,8 +57,6 @@
       GCL_MAX_JOB_NAME_PADDING = "30";
     };
 
-    ## TODO: Check if ZSH and iterm2 shell integration get right var templated in
-    # Spaceship prompt configuration
     initExtra = ''
       # Initialize spaceship prompt
       source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
@@ -79,12 +77,13 @@
 
       # TMUX function
       n() {
-        local session_name="$(basename "$PWD")"
+       local session_name=$(echo "$PWD" | rev | cut -d'/' -f1-5 | rev | tr '/' '-' | tr '.' '-' | tr ':' '-')
+       # local session_name="$(basename "$PWD")"
         if [ -z "$TMUX" ]; then
           if tmux has-session -t "$session_name" 2>/dev/null; then
-            tmux attach-session -t "$session_name"
+              tmux attach-session -t "$session_name"
           else
-            tmux new-session -s "$session_name" "nvim $*"
+              tmux new-session -s "$session_name" "nvim $*"
           fi
         else
           nvim "$@"
@@ -113,9 +112,6 @@
           fi
         done
       }
-
-      # Source MEGA completion
-      # source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
 
       # Source additional scripts
       if [ -d $HOME/.zsh_scripts ]; then
