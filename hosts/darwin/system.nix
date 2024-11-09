@@ -39,11 +39,12 @@
       CustomSystemPreferences = {};
 
       # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomUserPreferences
+      # SET THIS ALSO IN THE UPSTREAN CONFIG BUT SWAP OUT THE VALUES TO 0!!!
       CustomUserPreferences = {
         "com.apple.dock" = {
-          "contents-immutable" = 0;
-          "size-immutable" = 0;
-          "position-immutable" = 0;
+          "contents-immutable" = 1;
+          "size-immutable" = 1;
+          "position-immutable" = 1;
         };
       };
 
@@ -72,7 +73,6 @@
           "/Users/${vars.user}/Downloads"
         ];
       };
-
       WindowManager = {
         GloballyEnabled = true;
         EnableStandardClickToShowDesktop = true;
