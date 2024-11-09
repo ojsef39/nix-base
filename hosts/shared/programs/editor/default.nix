@@ -27,7 +27,6 @@ in
     fzf
     git
     lazygit
-    neovim
     nerdfonts
     ripgrep
   ];
