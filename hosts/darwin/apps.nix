@@ -10,7 +10,6 @@
     ghq
     gitlab-ci-local
     gomplate
-    helm
     hwatch
     kubectl
     ncdu

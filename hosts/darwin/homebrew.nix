@@ -22,6 +22,7 @@
       "ca-certificates"
       "coreutils"
       "keyring"
+      "helm"
       "mas"
     ];
 
