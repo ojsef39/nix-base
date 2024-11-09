@@ -14,6 +14,20 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = lib.mkDefault true;
       pull.rebase = lib.mkDefault true;
+      diff = {
+        tool = "kitty";
+        guitool = "kittygui";
+      };
+      difftool = {
+        prompt = false;
+        trustExitCode = true;
+        kitty = {
+          cmd = "kitten diff --to $LOCAL --from $REMOTE";
+        };
+        kittygui = {
+          cmd = "kitten diff --to $LOCAL --from $REMOTE";
+        };
+      };
 
       tag.forceSignAnnotated = lib.mkDefault false;
 
