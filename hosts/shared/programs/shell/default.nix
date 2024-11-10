@@ -3,6 +3,7 @@
 {
   # Required packages
   home.packages = with pkgs; [
+    antigen
     coreutils
     eza
     fastfetch
