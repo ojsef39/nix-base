@@ -5,6 +5,7 @@
     home-manager.url = "github:nix-community/home-manager";
     darwin.url = "github:lnl7/nix-darwin/master";
     yuki.url = "github:frostplexx/yuki";
+    stylix.url = "github:danth/stylix";
   };
   outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
   {
@@ -28,6 +29,7 @@
     ];
 
     macModules = [
+      inputs.stylix.darwinModules.stylix
       home-manager.darwinModules.home-manager
       ./hosts/darwin/import.nix
       ./hosts/darwin/homebrew.nix

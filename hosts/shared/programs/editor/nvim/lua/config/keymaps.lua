@@ -50,3 +50,11 @@ vim.keymap.set("i", "<ESC>f", "<C-Right>", { noremap = true })
 -- Insert mode specific mappings for start/end of line
 vim.keymap.set("i", "<C-a>", "<Home>", { noremap = true })
 vim.keymap.set("i", "<C-e>", "<End>", { noremap = true })
+
+-- Yazi
+vim.keymap.set("n", "<leader>yy", function()
+  vim.cmd("terminal yazi --cwd-file=" .. vim.fn.expand("%:p:h") .. "/.yazi-cwd")
+  vim.cmd("startinsert")
+  -- Autocmd to close the terminal when lazygit exits
+  vim.cmd("autocmd TermClose * if &buftype == 'terminal' && expand('<afile>') =~ 'yazi' | bd! | endif")
+end, { desc = "open yazi in terminal" })
