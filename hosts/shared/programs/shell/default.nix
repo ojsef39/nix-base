@@ -30,20 +30,6 @@
       plugins = [ "git" "node" "npm" "github" ];
     };
 
-    # Install and configure plugins separately
-    plugins = [
-      {
-        name = "zsh-fzf-tab";
-        src = pkgs.zsh-fzf-tab;
-        file = "share/fzf-tab/fzf-tab.plugin.zsh";
-      }
-      {
-        name = "spaceship-prompt";
-        src = pkgs.spaceship-prompt;
-        file = "share/zsh/site-functions/prompt_spaceship_setup";
-      }
-    ];
-
     # Environment variables
     sessionVariables = {
       PATH = lib.concatStringsSep ":" [
@@ -59,13 +45,9 @@
 
     initExtra = ''
       # Initialize spaceship prompt
-      source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
-      autoload -U promptinit; promptinit
-      bindkey -r "^j"
-
       SPACESHIP_CHAR_SYMBOL="🚀 "
       SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
-      SPACESHIP_DIR_PREFIX="🗂  "
+      SPACESHIP_DIR_PREFIX="🗂 "
       SPACESHIP_GIT_BRANCH_PREFIX="⚡"
       SPACESHIP_PROMPT_SUFFIXES_SHOW=false
       SPACESHIP_PROMPT_DEFAULT_PREFIX=" - "
@@ -74,6 +56,9 @@
       SPACESHIP_DOCKER_PREFIX=" on "
       SPACESHIP_PACKAGE_PREFIX=" is "
       SPACESHIP_GIT_STATUS_SHOW="false"
+
+      autoload -U promptinit; promptinit
+      bindkey -r "^j"
 
       # TMUX function
       n() {
@@ -125,6 +110,20 @@
       fi
       tmux list-sessions
     '';
+
+    # Install and configure plugins separately
+    plugins = [
+      {
+        name = "zsh-fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+      {
+        name = "spaceship-prompt";
+        src = pkgs.spaceship-prompt;
+        file = "share/zsh/site-functions/prompt_spaceship_setup";
+      }
+    ];
 
     # Aliases
     shellAliases = {
