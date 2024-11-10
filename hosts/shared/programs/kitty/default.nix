@@ -107,7 +107,7 @@
       "ctrl+k" = "kitten ~/.config/kitty/scripts/pass_keys.py top    ctrl+k";
       "ctrl+h" = "kitten ~/.config/kitty/scripts/pass_keys.py left   ctrl+h";
       "ctrl+l" = "kitten ~/.config/kitty/scripts/pass_keys.py right  ctrl+l";
-      "ctrl+shift+left" = "resize_windo wider 5";
+      "ctrl+shift+left" = "resize_window wider 5";
       "ctrl+shift+right" = "resize_window narrower 5";
       "ctrl+shift+up" = "resize_window taller";
       "ctrl+shift+down" = "resize_window shorter";
@@ -148,9 +148,6 @@
   };
 
   xdg.configFile = {
-    # Copy pass_keys.py
-    "kitty/scripts/pass_keys.py".source = ./scripts/pass_keys.py;
-
     # Copy theme
     "kitty/themes/catpuccin.conf".source = ./themes/catpuccin.conf;
 

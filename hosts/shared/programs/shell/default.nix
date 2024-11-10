@@ -61,23 +61,24 @@
       bindkey -r "^j"
 
       # TMUX function
-      n() {
-       local session_name=$(echo "$PWD" | rev | cut -d'/' -f1-5 | rev | tr '/' '-' | tr '.' '-' | tr ':' '-')
-       # local session_name="$(basename "$PWD")"
-        if [ -z "$TMUX" ]; then
-          if tmux has-session -t "$session_name" 2>/dev/null; then
-              tmux attach-session -t "$session_name"
-          else
-              tmux new-session -s "$session_name" "nvim $*"
-          fi
-        else
-          nvim "$@"
-        fi
-      }
-      compdef _files n
+      # n() {
+      #  local session_name=$(echo "$PWD" | rev | cut -d'/' -f1-5 | rev | tr '/' '-' | tr '.' '-' | tr ':' '-')
+      #  # local session_name="$(basename "$PWD")"
+      #   if [ -z "$TMUX" ]; then
+      #     if tmux has-session -t "$session_name" 2>/dev/null; then
+      #         tmux attach-session -t "$session_name"
+      #     else
+      #         tmux new-session -s "$session_name" "nvim $*"
+      #     fi
+      #   else
+      #     nvim "$@"
+      #   fi
+      # }
+      # compdef _files n
 
       t() {
-          local session_name=$(echo "$PWD" | rev | cut -d'/' -f1-5 | rev | tr '/' '-' | tr '.' '-' | tr ':' '-')
+          # local session_name=$(echo "$PWD" | rev | cut -d'/' -f1-5 | rev | tr '/' '-' | tr '.' '-' | tr ':' '-')
+          local session_name="$(basename "$PWD")"
           if [ -z "$TMUX" ]; then
               if tmux has-session -t "$session_name" 2>/dev/null; then
                   tmux attach-session -t "$session_name"
@@ -105,9 +106,7 @@
         done
       fi
 
-      if [[ $(ps aux | grep -c "[z]sh") -eq 2 ]]; then ## if any other process is running
-        fastfetch
-      fi
+      fastfetch
       tmux list-sessions
     '';
 
@@ -115,6 +114,7 @@
     shellAliases = {
       please = "sudo";
       ls = "eza --icons --git --header";
+      n = "nvim";
       x = "exit";
     };
     
