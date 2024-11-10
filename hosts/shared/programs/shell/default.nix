@@ -119,7 +119,10 @@
           source $file
         done
       fi
-      fastfetch
+
+      if [[ $(ps aux | grep -c "[z]sh") -eq 2 ]]; then ## if any other process is running
+        fastfetch
+      fi
       tmux list-sessions
     '';
 
