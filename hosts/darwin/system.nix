@@ -39,7 +39,7 @@
       CustomSystemPreferences = {};
 
       # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.CustomUserPreferences
-      # SET THIS ALSO IN THE UPSTREAN CONFIG BUT SWAP OUT THE VALUES TO 0!!!
+      # Lock the dock after Apps were set by upstream
       CustomUserPreferences = {
         "com.apple.dock" = {
           "contents-immutable" = 1;
