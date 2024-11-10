@@ -10,7 +10,7 @@ let
   treeSitterWithAllGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars);
 in
 {
-  # Packages used in nvim but also outside of it
+  # Packages you also want to outside use outside of nvim
   home.packages = with pkgs; [
     fzf
     git
@@ -33,7 +33,11 @@ in
     # Packages used in nvim
     extraPackages = with pkgs; [
       fd
+      fzf
+      lazygit
       nodejs
+      ripgrep
+      yazi
 
       # LSP
       vimPlugins.vim-prettier
