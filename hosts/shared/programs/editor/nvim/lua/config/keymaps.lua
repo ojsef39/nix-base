@@ -32,19 +32,21 @@ vim.keymap.set(
 
 -- Map terminal escape sequences in Neovim for both normal and insert modes
 -- For CMD+Left/Right (start/end of line)
-vim.keymap.set({ "n", "i" }, "<C-a>", "<Home>", { noremap = true })
-vim.keymap.set({ "n", "i" }, "<C-e>", "<End>", { noremap = true })
+vim.keymap.set({ "n", "i", "v" }, "<C-a>", "<Home>", { noremap = true })
+vim.keymap.set({ "n", "i", "v" }, "<C-e>", "<End>", { noremap = true })
 
 -- For ALT+Left/Right (word navigation)
-vim.keymap.set({ "n", "i" }, "<M-b>", "<C-Left>", { noremap = true })
-vim.keymap.set({ "n", "i" }, "<M-f>", "<C-Right>", { noremap = true })
-
--- Alternative mapping method if the above doesn't work
-vim.keymap.set({ "n", "i" }, "<ESC>b", "<C-Left>", { noremap = true })
-vim.keymap.set({ "n", "i" }, "<ESC>f", "<C-Right>", { noremap = true })
-
--- You might also need these insert mode specific mappings
-vim.keymap.set("i", "<C-a>", "<Home>", { noremap = true })
-vim.keymap.set("i", "<C-e>", "<End>", { noremap = true })
+vim.keymap.set({ "n", "v" }, "<M-b>", "b", { noremap = true })
+vim.keymap.set({ "n", "v" }, "<M-f>", "w", { noremap = true })
 vim.keymap.set("i", "<M-b>", "<C-Left>", { noremap = true })
 vim.keymap.set("i", "<M-f>", "<C-Right>", { noremap = true })
+
+-- Alternative mapping method if the above doesn't work
+vim.keymap.set({ "n", "v" }, "<ESC>b", "b", { noremap = true })
+vim.keymap.set({ "n", "v" }, "<ESC>f", "w", { noremap = true })
+vim.keymap.set("i", "<ESC>b", "<C-Left>", { noremap = true })
+vim.keymap.set("i", "<ESC>f", "<C-Right>", { noremap = true })
+
+-- Insert mode specific mappings for start/end of line
+vim.keymap.set("i", "<C-a>", "<Home>", { noremap = true })
+vim.keymap.set("i", "<C-e>", "<End>", { noremap = true })

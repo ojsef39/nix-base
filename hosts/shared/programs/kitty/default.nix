@@ -103,10 +103,10 @@
       "ctrl+shift+j" = "move_window down";
       "ctrl+shift+k" = "move_window up";
       "ctrl+shift+l" = "move_window right";
-      "ctrl+j" = "kitten ~/.config/kitty/scripts/pass_keys.py bottom ctrl+j";
-      "ctrl+k" = "kitten ~/.config/kitty/scripts/pass_keys.py top    ctrl+k";
-      "ctrl+h" = "kitten ~/.config/kitty/scripts/pass_keys.py left   ctrl+h";
-      "ctrl+l" = "kitten ~/.config/kitty/scripts/pass_keys.py right  ctrl+l";
+      "opt+j" = "kitten ~/.config/kitty/scripts/pass_keys.py bottom ctrl+j";
+      "opt+k" = "kitten ~/.config/kitty/scripts/pass_keys.py top    ctrl+k";
+      "opt+h" = "kitten ~/.config/kitty/scripts/pass_keys.py left   ctrl+h";
+      "opt+l" = "kitten ~/.config/kitty/scripts/pass_keys.py right  ctrl+l";
       "ctrl+shift+left" = "resize_windo wider 5";
       "ctrl+shift+right" = "resize_window narrower 5";
       "ctrl+shift+up" = "resize_window taller";
