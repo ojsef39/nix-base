@@ -116,8 +116,8 @@
       "ctrl+shift+p" = "launch --title \"Project Selector\" --copy-env --type=overlay zsh -il -c \"~/.config/kitty/scripts/project_selector.sh\"";
       "cmd+left" = "send_text all \\x01";
       "cmd+right" = "send_text all \\x05";
-      "alt+left" = "send_text all \\x1b[1;3D";
-      "alt+right" = "send_text all \\x1b[1;3C";
+      "alt+left" = "send_text all \\x1bb";
+      "alt+right" = "send_text all \\x1bf";
       "cmd+1" = "goto_tab 1";
       "cmd+2" = "goto_tab 2";
       "cmd+3" = "goto_tab 3";
