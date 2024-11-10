@@ -128,6 +128,16 @@
       "cmd+8" = "goto_tab 8";
       "cmd+9" = "goto_tab 9";
       "cmd+0" = "goto_tab 10";
+      # Preserve Option/Alt +  combinations for special characters
+      "opt+5" = "send_text all [";
+      "opt+6" = "send_text all ]";
+      "opt+7" = "send_text all |";
+      "opt+8" = "send_text all {";
+      "opt+9" = "send_text all }";
+      "opt+n" = "send_text all ~";
+      "opt+l" = "send_text all @";
+      "opt+-" = "send_text all –";  # en dash
+      "opt+shift+-" = "send_text all —";  # em dash
     };
 
     # Extra configuration to ensure catpuccin theme is included
