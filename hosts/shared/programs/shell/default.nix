@@ -114,6 +114,8 @@
 
     # Aliases
     shellAliases = {
+      ##TODO: Make this flexible with gitDir variable
+      update = ". ~/CodeProjects/github.com/ojsef39/nix-personal/Makefile update";
       please = "sudo";
       ls = "eza --icons --git --header";
       n = "nvim";

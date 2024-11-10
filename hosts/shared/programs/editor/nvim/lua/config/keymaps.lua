@@ -53,7 +53,8 @@ vim.keymap.set("i", "<C-e>", "<End>", { noremap = true })
 
 -- Yazi
 vim.keymap.set("n", "<leader>yy", function()
-  vim.cmd("terminal yazi --cwd-file=" .. vim.fn.expand("%:p:h") .. "/.yazi-cwd")
+  local cwd = vim.fn.expand("%:p:h")
+  vim.cmd("terminal cd " .. cwd .. " && yazi")
   vim.cmd("startinsert")
   -- Autocmd to close the terminal when lazygit exits
   vim.cmd("autocmd TermClose * if &buftype == 'terminal' && expand('<afile>') =~ 'yazi' | bd! | endif")
