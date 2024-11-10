@@ -43,6 +43,7 @@
       GCL_MAX_JOB_NAME_PADDING = "30";
     };
 
+    ##TODO: Improve TMUX function (move away from tmux + make session name more readable)
     initExtra = ''
       # Initialize spaceship prompt
       SPACESHIP_CHAR_SYMBOL="🚀 "
@@ -111,6 +112,13 @@
       tmux list-sessions
     '';
 
+    # Aliases
+    shellAliases = {
+      please = "sudo";
+      ls = "eza --icons --git --header";
+      x = "exit";
+    };
+    
     # Install and configure plugins separately
     plugins = [
       {
@@ -124,13 +132,6 @@
         file = "share/zsh/site-functions/prompt_spaceship_setup";
       }
     ];
-
-    # Aliases
-    shellAliases = {
-      please = "sudo";
-      ls = "eza --icons --git --header";
-      x = "exit";
-    };
   };
 
   # Additional program configurations
