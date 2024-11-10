@@ -7,7 +7,6 @@
     aichat
     btop
     cargo
-    fastfetch
     ghq
     gitlab-ci-local
     go

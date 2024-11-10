@@ -113,7 +113,7 @@
       "ctrl+shift+down" = "resize_window shorter";
       "ctrl+shift+x" = "close_window";
       "ctrl+shift+m" = "launch --type=tab --cwd=current --copy-env --title Yazi -- zsh -il -c \"yazi\"";
-      "ctrl+shift+p" = "launch --title 'Project Selector' --copy-env --type=overlay zsh -il ~/.config/kitty/scripts/project_selector.sh";
+      "ctrl+shift+p" = "launch --title 'Project Selector' --copy-env --type=overlay SKIP_FF=1 zsh -il ~/.config/kitty/scripts/project_selector.sh";
       "cmd+left" = "previous_tab";
       "cmd+right" = "next_tab";
       "alt+left" = "send_text all \\x1bb";

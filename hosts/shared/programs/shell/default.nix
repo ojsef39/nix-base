@@ -106,7 +106,9 @@
         done
       fi
 
-      fastfetch
+      if [[ -z "$SKIP_FF" ]]; then
+        fastfetch
+      fi
       tmux list-sessions
     '';
 
