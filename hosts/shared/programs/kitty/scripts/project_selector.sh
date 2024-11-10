@@ -16,7 +16,7 @@ project_selector() {
 
   if [ -n "$project" ]; then
     {
-      kitten @ launch --type=tab --cwd="$project"
+      kitten @ launch --type=tab --cwd="$project" nvim .
       echo "Changed to $project"
     } || {
       echo "Failed to change directory to $project"
