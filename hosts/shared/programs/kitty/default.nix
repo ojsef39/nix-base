@@ -113,7 +113,7 @@
       "ctrl+shift+down" = "resize_window shorter";
       "ctrl+shift+x" = "close_window";
       "ctrl+shift+m" = "launch --type=tab --cwd=current --copy-env --title Yazi -- zsh -il -c \"yazi\"";
-      "ctrl+shift+p" = "launch --title \"Project Selector\" --copy-env --type=overlay zsh -il -c \"~/.config/kitty/scripts/project_selector.sh\"";
+      "ctrl+shift+p" = "launch --title 'Project Selector' --copy-env --type=overlay zsh -il ~/.config/kitty/scripts/project_selector.sh";
       "cmd+left" = "send_text all \\x01";
       "cmd+right" = "send_text all \\x05";
       "alt+left" = "send_text all \\x1bb";
@@ -137,6 +137,7 @@
       "opt+n" = "send_text all ~";
       "opt+l" = "send_text all @";
       "opt+-" = "send_text all –";  # en dash
+      "opt+shift+7" = "send_text all \\\\";  # backslash
       "opt+shift+-" = "send_text all —";  # em dash
     };
 
@@ -154,9 +155,12 @@
     "kitty/themes/catpuccin.conf".source = ./themes/catpuccin.conf;
 
     # Copy icon
-    "kitty/themes/kitty.app.png".source = ./themes/kitty.app.png;
+    "kitty/kitty.app.png".source = ./themes/kitty.app.png;
 
-    # If you have a project selector script
-    "kitty/scripts/project_selector.sh".source = ./scripts/project_selector.sh;
+    # Executable scripts
+    "kitty/scripts" = {
+      source = ./scripts;
+      recursive = true;
+    };
   };
 }
