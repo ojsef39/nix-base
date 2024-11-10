@@ -7,6 +7,7 @@ let
       baseName = baseNameOf path;
     in baseName != "lazy-lock.json";
   };
+  treeSitterWithAllGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars);
 in
 {
   # Packages used in nvim but also outside of it
@@ -25,11 +26,14 @@ in
     vimAlias = lib.mkDefault true;
     withNodeJs = lib.mkDefault true;
 
+    plugins = [
+      treeSitterWithAllGrammars
+    ];
+
     # Packages used in nvim
     extraPackages = with pkgs; [
       fd
       nodejs
-      tree-sitter
 
       # LSP
       vimPlugins.vim-prettier
@@ -74,5 +78,11 @@ in
         chmod 755 $HOME/.local/share/nvim
       '';
     };
+  };
+  # Treesitter is configured as a locally developed module in lazy.nvim
+  # we hardcode a symlink here so that we can refer to it in our lazy config
+  ".local/share/nvim/nix/nvim-treesitter/" = {
+    recursive = true;
+    source = treeSitterWithAllGrammars;
   };
 }
