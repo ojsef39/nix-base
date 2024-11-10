@@ -41,23 +41,22 @@
       PYTHON = "/usr/bin/python3";
       GCL_TIMESTAMPS = "true";
       GCL_MAX_JOB_NAME_PADDING = "30";
+      # Initialize spaceship prompt
+      SPACESHIP_CHAR_SYMBOL="🚀 ";
+      SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true;
+      SPACESHIP_DIR_PREFIX="🗂 ";
+      SPACESHIP_GIT_BRANCH_PREFIX="⚡";
+      SPACESHIP_PROMPT_SUFFIXES_SHOW=false;
+      SPACESHIP_PROMPT_DEFAULT_PREFIX=" - ";
+      SPACESHIP_EXEC_TIME_SHOW=false;
+      SPACESHIP_GIT_PREFIX=" on ";
+      SPACESHIP_DOCKER_PREFIX=" on ";
+      SPACESHIP_PACKAGE_PREFIX=" is ";
+      SPACESHIP_GIT_STATUS_SHOW="false";
     };
 
     ##TODO: Improve TMUX function (move away from tmux + make session name more readable)
     initExtra = ''
-      # Initialize spaceship prompt
-      SPACESHIP_CHAR_SYMBOL="🚀 "
-      SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
-      SPACESHIP_DIR_PREFIX="🗂 "
-      SPACESHIP_GIT_BRANCH_PREFIX="⚡"
-      SPACESHIP_PROMPT_SUFFIXES_SHOW=false
-      SPACESHIP_PROMPT_DEFAULT_PREFIX=" - "
-      SPACESHIP_EXEC_TIME_SHOW=false
-      SPACESHIP_GIT_PREFIX=" on "
-      SPACESHIP_DOCKER_PREFIX=" on "
-      SPACESHIP_PACKAGE_PREFIX=" is "
-      SPACESHIP_GIT_STATUS_SHOW="false"
-
       autoload -U promptinit; promptinit
       bindkey -r "^j"
 
