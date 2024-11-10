@@ -96,7 +96,7 @@
     # Keybindings
     keybindings = {
       "ctrl+shift+-" = "launch --location=hsplit --cwd=current";
-      "ctrl+shift+=" = "launch --location=vsplit --cwd=current";
+      "ctrl+shift++" = "launch --location=vsplit --cwd=current";
       "f4" = "launch --location=split";
       "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
       "ctrl+shift+h" = "move_window left";
