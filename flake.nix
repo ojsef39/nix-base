@@ -30,7 +30,6 @@
 
     macModules = [
       inputs.stylix.darwinModules.stylix
-      home-manager.darwinModules.home-manager
       ./hosts/darwin/import.nix
       ./hosts/darwin/homebrew.nix
     ];
