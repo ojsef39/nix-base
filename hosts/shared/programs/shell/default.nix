@@ -44,7 +44,7 @@
       # Initialize spaceship prompt
       SPACESHIP_CHAR_SYMBOL="🚀 ";
       SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true;
-      SPACESHIP_DIR_PREFIX="🗂 ";
+      SPACESHIP_DIR_PREFIX="🗂  ";
       SPACESHIP_GIT_BRANCH_PREFIX="⚡";
       SPACESHIP_PROMPT_SUFFIXES_SHOW=false;
       SPACESHIP_PROMPT_DEFAULT_PREFIX=" - ";
