@@ -108,22 +108,24 @@
 
       # Ensure fastfetch doesnt get on my nerves
       if [[ -z "$SKIP_FF" ]]; then
-        if [ ! -f /tmp/fastfetch.lock ]; then
-            # Create lock file with current kitty session PID
-            echo $KITTY_PID > /tmp/fastfetch.lock
-            fastfetch
-        fi
-        cleanup_fastfetch_lock() {
-            if [ -f /tmp/fastfetch.lock ]; then
-                stored_pid=$(cat /tmp/fastfetch.lock)
-                if [ "$stored_pid" = "$KITTY_PID" ]; then
-                    rm /tmp/fastfetch.lock
-                fi
-            fi
-        }
-        zshexit() {
-            cleanup_fastfetch_lock
-        }
+          if [ ! -f /tmp/fastfetch.lock ]; then
+              # Create lock file with current kitty session PID
+              echo $KITTY_PID > /tmp/fastfetch.lock
+              fastfetch
+          fi
+
+          cleanup_fastfetch_lock() {
+              if [ -f /tmp/fastfetch.lock ]; then
+                  # Check if any kitty windows are still running
+                  if ! pgrep -x kitty >/dev/null; then
+                      rm /tmp/fastfetch.lock
+                  fi
+              fi
+          }
+
+          zshexit() {
+              cleanup_fastfetch_lock
+          }
       fi
       tmux list-sessions
     '';
@@ -131,7 +133,7 @@
     # Aliases
     shellAliases = {
       ##TODO: Make this flexible with gitDir variable
-      update-nix = "make -C ~/CodeProjects/github.com/ojsef39/nix-personal update";
+      update-nix = "make -C ${vars.git.ghq}/github.com/ojsef39/nix-personal update";
       please = "sudo";
       ls = "eza --icons --git --header";
       n = "nvim";

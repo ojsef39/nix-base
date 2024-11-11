@@ -163,7 +163,7 @@
     "kitty/scripts/project_selector.sh" = {
       text = ''
         #!/bin/bash
-        project_dirs=(${vars.project_selector})
+        project_dirs=(${vars.kitty.project_selector})
         # Display the subfolders of the project directories
         projects() {
           for dir in "$project_dirs[@]"; do
