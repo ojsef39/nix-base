@@ -39,7 +39,7 @@ in
       ripgrep
       yazi
 
-      # LSP
+      # LSPs
       vimPlugins.vim-prettier
       # Go
       gofumpt
