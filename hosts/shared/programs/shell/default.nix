@@ -106,8 +106,24 @@
         done
       fi
 
+      # Ensure fastfetch doesnt get on my nerves
       if [[ -z "$SKIP_FF" ]]; then
-        fastfetch
+        if [ ! -f /tmp/fastfetch.lock ]; then
+            # Create lock file with current kitty session PID
+            echo $KITTY_PID > /tmp/fastfetch.lock
+            fastfetch
+        fi
+        cleanup_fastfetch_lock() {
+            if [ -f /tmp/fastfetch.lock ]; then
+                stored_pid=$(cat /tmp/fastfetch.lock)
+                if [ "$stored_pid" = "$KITTY_PID" ]; then
+                    rm /tmp/fastfetch.lock
+                fi
+            fi
+        }
+        zshexit() {
+            cleanup_fastfetch_lock
+        }
       fi
       tmux list-sessions
     '';
