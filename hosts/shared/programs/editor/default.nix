@@ -61,6 +61,8 @@ in
       yaml-language-server
       # JSON
       jsonnet-language-server
+      # git
+      actionlint
     ];
   };
 
