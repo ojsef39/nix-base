@@ -50,11 +50,3 @@ vim.keymap.set("i", "<ESC>f", "<C-Right>", { noremap = true })
 -- Insert mode specific mappings for start/end of line
 vim.keymap.set("i", "<C-a>", "<Home>", { noremap = true })
 vim.keymap.set("i", "<C-e>", "<End>", { noremap = true })
-
--- Yazi
-vim.keymap.set("n", "<leader>ee", function()
-  vim.cmd("terminal yazi " .. vim.fn.expand("%:p:h"))
-  vim.cmd("startinsert")
-  -- Autocmd to close the terminal when yazi exits
-  vim.cmd("autocmd TermClose * if &buftype == 'terminal' && expand('<afile>') =~ 'yazi' | bd! | endif")
-end, { desc = "open yazi in terminal" })
