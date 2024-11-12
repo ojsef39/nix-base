@@ -38,7 +38,6 @@ in
       lazygit
       nodejs
       ripgrep
-      yazi
 
       # LSPs
       vimPlugins.vim-prettier

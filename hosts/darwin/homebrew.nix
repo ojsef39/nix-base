@@ -22,11 +22,12 @@
     brews = [
       "ca-certificates"
       "coreutils"
-      "helm"
       "hashicorp/tap/vault"
+      "helm"
       "keyring"
       "mas"
       "ncdu"
+      "yazi"
     ];
 
     # macOS-specific apps and those not available/stable in nixpkgs
