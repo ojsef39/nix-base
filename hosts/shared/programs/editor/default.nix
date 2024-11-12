@@ -13,6 +13,7 @@ in
 {
   # Packages you also want to outside use outside of nvim
   home.packages = with pkgs; [
+    fd
     fzf
     git
     lazygit
@@ -33,7 +34,6 @@ in
 
     # Packages used in nvim
     extraPackages = with pkgs; [
-      fd
       fzf
       lazygit
       nodejs
