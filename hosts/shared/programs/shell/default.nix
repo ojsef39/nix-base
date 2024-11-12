@@ -132,8 +132,7 @@
 
     # Aliases
     shellAliases = {
-      ##TODO: Make this flexible with gitDir variable
-      update-nix = "make -C ${vars.git.ghq}/github.com/ojsef39/nix-personal update";
+      update-nix = "make -C ${vars.git.nix} update";
       please = "sudo";
       ls = "eza --icons --git --header";
       n = "nvim";
