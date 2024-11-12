@@ -3,10 +3,6 @@
     rm -f ~/.gitconfig
   '';
 
-  home.packages = with pkgs; [
-    difftastic
-  ];
-
   programs.git = {
     enable = lib.mkDefault true;
     lfs.enable = lib.mkDefault true;
@@ -19,25 +15,15 @@
       push.autoSetupRemote = lib.mkDefault true;
       pull.rebase = lib.mkDefault true;
       
-      # Difftastic configuration
       diff = {
-        tool = "kitty";
-        guitool = "kittygui";
-        external = "difft"; # Add difftastic as external diff tool
-      };
-      
-      pager = {
-        difftool = "less -RFX"; # Configure pager for difftastic
+        tool = "nvimdiff";
       };
 
       difftool = {
         prompt = false;
         trustExitCode = true;
-        kitty = {
-          cmd = "kitten diff --to $LOCAL --from $REMOTE";
-        };
-        kittygui = {
-          cmd = "kitten diff --to $LOCAL --from $REMOTE";
+        nvimdiff = {
+          cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
         };
       };
 

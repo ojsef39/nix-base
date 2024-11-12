@@ -90,6 +90,18 @@
           fi
       }
 
+      # diff function with default flags
+      diffc() {
+        diff -u -a "$@"
+      }
+      compdef _diff diffc
+
+      # diff function using nvim
+      diffn() {
+        nvim -d "$@"
+      }
+      compdef _diff diffnV
+
       check_repos() {
         find . -type d -name ".git" | while read gitdir; do
           repo_dir="$(dirname "$gitdir")"
