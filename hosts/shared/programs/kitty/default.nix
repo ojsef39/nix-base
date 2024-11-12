@@ -140,11 +140,6 @@
       "opt+shift+7" = "send_text all \\\\";  # backslash
       "opt+shift+-" = "send_text all —";  # em dash
     };
-
-    # Extra configuration to ensure catpuccin theme is included
-    # extraConfig = ''
-    #   include ${config.xdg.configHome}/kitty/themes/catpuccin.conf
-    # '';
   };
 
   xdg.configFile = {
@@ -163,17 +158,26 @@
     "kitty/scripts/project_selector.sh" = {
       text = ''
         #!/bin/bash
+        ghq_root=${vars.git.ghq}
         project_dirs=(${vars.kitty.project_selector})
-        # Display the subfolders of the project directories
+
+        # Function to find git repositories under the ghq root path
+        git_repos() {
+          find "$ghq_root" -type d -name ".git" | sed 's/\/.git$//'
+        }
+
+        # Display the git repositories and subfolders of the project directories
         projects() {
+          git_repos
           for dir in "$project_dirs[@]"; do
             find "$dir" -maxdepth 1 -type d | tail -n +2 # List subdirectories only, excluding the base directory itself
           done
         }
+
         # Select a project directory using fzf
         project_selector() {
           local project
-          project=$(projects | fzf)
+          project=$(projects | fzf --height 100%)
 
           if [ -n "$project" ]; then
             {
@@ -187,6 +191,7 @@
             echo "No project selected."
           fi
         }
+
         project_selector
       '';
     };
