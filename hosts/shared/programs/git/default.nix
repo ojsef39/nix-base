@@ -1,7 +1,11 @@
-{ lib, vars, ...}: {
+{ pkgs, lib, vars, ...}: {
   home.activation.removeExistingGitconfig = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
     rm -f ~/.gitconfig
   '';
+
+  home.packages = with pkgs; [
+    difftastic
+  ];
 
   programs.git = {
     enable = lib.mkDefault true;
@@ -14,10 +18,18 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = lib.mkDefault true;
       pull.rebase = lib.mkDefault true;
+      
+      # Difftastic configuration
       diff = {
         tool = "kitty";
         guitool = "kittygui";
+        external = "difft"; # Add difftastic as external diff tool
       };
+      
+      pager = {
+        difftool = "less -RFX"; # Configure pager for difftastic
+      };
+
       difftool = {
         prompt = false;
         trustExitCode = true;
@@ -35,8 +47,6 @@
     aliases = {
       # Your existing aliases
       mr = "!sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -";
-
-      # Original aliases from the Nix config
       br = "branch";
       co = "checkout";
       st = "status";
