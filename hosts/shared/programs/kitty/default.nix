@@ -116,6 +116,10 @@
       "ctrl+shift+p" = "launch --title 'Project Selector' --copy-env --type=overlay env SKIP_FF=1  zsh -il ~/.config/kitty/scripts/project_selector.sh";
       "cmd+left" = "previous_tab";
       "cmd+right" = "next_tab";
+      ## SET F9 to forward and F10 to back button in Logitech app
+      "f9" = "next_tab";
+      "f10" = "previous_tab";
+      ##
       "alt+left" = "send_text all \\x1bb";
       "alt+right" = "send_text all \\x1bf";
       "cmd+1" = "goto_tab 1";
