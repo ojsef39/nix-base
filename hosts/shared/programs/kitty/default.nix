@@ -113,7 +113,7 @@
       "ctrl+shift+down" = "resize_window shorter";
       "ctrl+shift+x" = "close_window";
       "ctrl+shift+m" = "launch --type=tab --cwd=current --copy-env --title Yazi -- env SKIP_FF=1 zsh -il -c \"yazi\"";
-      "ctrl+shift+p" = "launch --title 'Project Selector' --copy-env --type=overlay env SKIP_FF=1  zsh -il ~/.config/kitty/scripts/project_selector.sh";
+      "ctrl+shift+p" = "launch --title 'Project Selector' --copy-env --type=overlay env SKIP_FF=1  sh -il ~/.config/kitty/scripts/project_selector.sh";
       "cmd+left" = "previous_tab";
       "cmd+right" = "next_tab";
       ## SET F9 to forward and F10 to back button in Logitech app
@@ -185,7 +185,7 @@
 
           if [ -n "$project" ]; then
             {
-              kitten @ launch --type=tab --cwd="$project" nvim .
+              kitten @ launch --type=tab --cwd="$project" -- env SKIP_FF=1 sh -il -c "nvim ."
               echo "Changed to $project"
             } || {
               echo "Failed to change directory to $project"
