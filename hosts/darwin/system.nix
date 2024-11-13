@@ -83,7 +83,7 @@
       alf.stealthenabled = 1; ##TODO: Move to personal
 
       menuExtraClock = {
-        ShowDate = 2;
+        ShowDate = 1;
         ShowSeconds = true;
       };
 
