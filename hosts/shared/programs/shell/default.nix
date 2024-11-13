@@ -35,7 +35,7 @@
       PATH = lib.concatStringsSep ":" [
         "/opt/homebrew/bin"
         "$HOME/Library/Python/3.12/bin"
-        "$HOME/CodeProjects/github.com/ojsef39/commit-oracle"
+        "/Users/${vars.user}/${vars.git.ghq}/github.com/ojsef39/commit-oracle"
         "$PATH"
       ];
       PYTHON = "/usr/bin/python3";

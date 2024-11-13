@@ -162,7 +162,7 @@
     "kitty/scripts/project_selector.sh" = {
       text = ''
         #!/bin/bash
-        ghq_root=${vars.git.ghq}
+        ghq_root=~/${vars.git.ghq}
         project_dirs=(${vars.kitty.project_selector})
 
         # Function to find git repositories under the ghq root path
@@ -185,7 +185,7 @@
 
           if [ -n "$project" ]; then
             {
-              kitten @ launch --type=tab --cwd="$project" -- env SKIP_FF=1 sh -il -c "nvim ."
+              kitten @ launch --type=tab --cwd="$project" -- env SKIP_FF=1 zsh -il -c "nvim ."
               echo "Changed to $project"
             } || {
               echo "Failed to change directory to $project"
