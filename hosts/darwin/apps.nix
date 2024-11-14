@@ -25,7 +25,10 @@
     yamllint
 
     # GUI Applications
-    discord         ##TODO: Add vencord
+    #FIX: Override not working
+    (discord.override {
+      withVencord = true;
+    })  # Discord with Vencord
     obsidian        # Note-taking
     raycast         # Spotlight replacement
     stats
