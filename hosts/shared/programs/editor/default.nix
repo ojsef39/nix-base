@@ -17,7 +17,9 @@ in
     fzf
     git
     lazygit
-    nerdfonts
+    (nerdfonts.override {
+      fonts = [ "JetBrainsMono" ];
+    })
     ripgrep
   ];
 
