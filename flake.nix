@@ -6,13 +6,14 @@
     darwin.url = "github:lnl7/nix-darwin/master";
     yuki.url = "github:frostplexx/yuki";
     stylix.url = "github:danth/stylix";
+    nixcord.url = "github:kaylorben/nixcord";
   };
   outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
   {
     sharedModules = [
       ./nix/core.nix
-##TODO: Do i need homemanager again here or is it sufficient if its called by the parent?
       home-manager.darwinModules.home-manager
+      inputs.nixcord.homeManagerModules.nixcord
       ({ vars, system, ... }: {  # system is now available here
         home-manager = {
           useGlobalPkgs = true;
