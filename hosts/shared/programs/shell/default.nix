@@ -10,7 +10,6 @@
     git
     nodejs
     python3
-    renovate
     tmux
     yarn
     zoxide
