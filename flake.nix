@@ -13,7 +13,6 @@
     sharedModules = [
       ./nix/core.nix
       home-manager.darwinModules.home-manager
-      inputs.nixcord.homeManagerModules.nixcord
       ({ vars, system, ... }: {  # system is now available here
         home-manager = {
           useGlobalPkgs = true;
@@ -21,6 +20,9 @@
           backupFileExtension = "backup";
           extraSpecialArgs = { inherit vars inputs; };
           users.${vars.user} = import ./hosts/shared/import.nix;
+          sharedModules = [
+            inputs.nixcord.homeManagerModules.nixcord
+          ];
         };
         environment.systemPackages = [ yuki.packages.${system.darwin.aarch}.default ];
       })
