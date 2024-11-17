@@ -9,58 +9,9 @@ let
     if pkgs.stdenv.isDarwin
     then "/Users/${vars.user}/Library/Application Support/Vencord/themes/${themeFile}"
     else "${config.xdg.configHome}/vesktop/themes/${themeFile}";
-
-  discordConfigDirName = if pkgs.stdenv.isDarwin
-    then "Discord"
-    else "discord";
-  discordUpdateScript = pkgs.writeText "discord-update-settings.py" ''
-    #!${pkgs.python3}/bin/python3
-
-    import json
-    import os
-    import sys
-    from pathlib import Path
-
-    config_home = {
-        "darwin": os.path.join(os.path.expanduser("~"), "Library", "Application Support"),
-        "linux": os.environ.get("XDG_CONFIG_HOME") or os.path.join(os.path.expanduser("~"), ".config")
-    }.get(sys.platform, None)
-
-    if config_home is None:
-        print("[discordUpdateScript] Unsupported operating system.")
-        sys.exit(1)
-
-    settings_path = Path(f"{config_home}/${discordConfigDirName}/settings.json")
-    settings_path_temp = Path(f"{config_home}/${discordConfigDirName}/settings.json.tmp")
-
-    if os.path.exists(settings_path):
-        with settings_path.open(encoding="utf-8") as settings_file:
-            try:
-                settings = json.load(settings_file)
-            except json.JSONDecodeError:
-                print("[discordUpdateScript] settings.json is malformed, letting Discord fix itself")
-                sys.exit(0)
-    else:
-        settings = {}
-
-    if settings.get("SKIP_HOST_UPDATE"):
-        print("[discordUpdateScript] Updates already disabled")
-    else:
-        skip_host_update = {"SKIP_HOST_UPDATE": True}
-        settings.update(skip_host_update)
-
-        os.makedirs(os.path.dirname(settings_path), exist_ok=True)
-
-        with settings_path_temp.open("w", encoding="utf-8") as settings_file_temp:
-            json.dump(settings, settings_file_temp, indent=2)
-
-        settings_path_temp.rename(settings_path)
-        print("[discordUpdateScript] Disabled updates")
-  '';
 in
 {
   stylix.targets.vesktop.enable = false; # Deactivate stylix because it doesnt work on macos
-  #FIX: Vencord not working
   programs.nixcord = {
     enable = true;
     discord = {
@@ -175,9 +126,5 @@ in
         force = true;
       };
     };
-    activation.setupDiscordSettings =
-      config.lib.dag.entryAfter ["writeBoundary"] ''
-        ${pkgs.python3}/bin/python3 ${discordUpdateScript}
-      '';
   };
 }

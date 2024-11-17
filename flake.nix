@@ -2,11 +2,26 @@
   description = "ojsef39 base nix configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    darwin.url = "github:lnl7/nix-darwin/master";
-    yuki.url = "github:frostplexx/yuki";
-    stylix.url = "github:danth/stylix";
-    nixcord.url = "github:kaylorben/nixcord";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yuki = {
+      url = "github:frostplexx/yuki";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
   {
