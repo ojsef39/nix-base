@@ -42,7 +42,7 @@
       "mac-mouse-fix"
       "poe"
       "scroll-reverser"
-      # "orbstack"
+      "orbstack"
     ];
   };
 }
