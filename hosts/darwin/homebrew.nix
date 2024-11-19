@@ -35,14 +35,16 @@
     casks = [
       "1password"
       "1password-cli"
-      "caffeine"
       "ChatGPT"
       "Lens"
+      "arc"
+      "caffeine"
       "kitty"
       "mac-mouse-fix"
+      "orbstack"
       "poe"
       "scroll-reverser"
-      "orbstack"
+      "yubico-authenticator"
     ];
   };
 }
