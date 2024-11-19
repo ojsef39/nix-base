@@ -40,6 +40,7 @@
       "arc"
       "caffeine"
       "kitty"
+      "logi-options+"
       "mac-mouse-fix"
       "orbstack"
       "poe"
