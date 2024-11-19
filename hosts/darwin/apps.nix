@@ -7,10 +7,7 @@
     aichat
     btop
     cargo
-    #FIX: Vencord not working
-    # (discord.override {
-    #   withVencord = true;
-    # })  # Discord with Vencord
+    gh
     ghq
     gitlab-ci-local
     go
