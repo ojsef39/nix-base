@@ -22,5 +22,7 @@ let
     else "/home/${vars.user}";
 in
 {
-  imports = systemModules;
+  imports = systemModules ++ [
+    ./apps.nix
+  ];
 }

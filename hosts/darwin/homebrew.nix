@@ -42,7 +42,6 @@
       "kitty"
       "logi-options+"
       "mac-mouse-fix"
-      "orbstack"
       "poe"
       "scroll-reverser"
       "shottr"
