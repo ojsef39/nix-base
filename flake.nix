@@ -28,22 +28,23 @@
     sharedModules = [
       ./nix/core.nix
       home-manager.darwinModules.home-manager
+      yuki.nixosModules.default
+      ({ config, pkgs, ... }: {
+        nixpkgs.config.allowUnfree = true;
+      })
       ({ vars, system, ... }: {  # system is now available here
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
           extraSpecialArgs = { inherit vars inputs; };
-          users.${vars.user} = import ./hosts/shared/import.nix;
+          users.${vars.user} = import ./hosts/shared/import-hm.nix;
           sharedModules = [
             inputs.nixcord.homeManagerModules.nixcord
           ];
         };
-        environment.systemPackages = [ yuki.packages.${system.darwin.aarch}.default ];
       })
-      ({ config, pkgs, ... }: {
-        nixpkgs.config.allowUnfree = true;
-      })
+      ./hosts/shared/import-sys.nix
     ];
 
     macModules = [
