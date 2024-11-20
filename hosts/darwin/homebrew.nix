@@ -45,6 +45,7 @@
       "orbstack"
       "poe"
       "scroll-reverser"
+      "shottr"
       "yubico-authenticator"
     ];
   };
