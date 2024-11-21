@@ -23,7 +23,6 @@
       "ca-certificates"
       "coreutils"
       "hashicorp/tap/vault"
-      "helm"
       "keyring"
       "mas"
       "ncdu"
