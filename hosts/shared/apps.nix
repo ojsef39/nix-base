@@ -1,8 +1,4 @@
 { pkgs, lib, vars, ... }: 
 {
-  environment.systemPackages = with pkgs; [
-    podman
-    podman-compose
-    podman-desktop
-  ];
+  environment.systemPackages = with pkgs; [];
 }
