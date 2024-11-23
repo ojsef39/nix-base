@@ -22,10 +22,6 @@
       url = "github:Soikr/nixcord/patch-1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin = {
-      url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
   {
