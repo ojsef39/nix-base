@@ -5,6 +5,7 @@
       podman
       podman-compose
       podman-desktop
+      openssh
     ];
     activation = {
       podmanSetupBase = ''
