@@ -8,6 +8,7 @@
     ];
     activation = {
       podmanSetupBase = ''
+        export PATH="/usr/bin:$PATH"
         if ! /etc/profiles/per-user/${vars.user}/bin/podman machine ls --format "{{.Name}}" | grep -q "podman-machine-default"; then
           echo "No default podman machine found, initializing one..."
           /etc/profiles/per-user/${vars.user}/bin/podman  machine init
