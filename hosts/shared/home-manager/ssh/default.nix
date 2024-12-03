@@ -2,11 +2,6 @@
   programs.ssh = {
     enable = lib.mkDefault true;
     
-    includes = [
-      ##TODO: Reconfigure this when i know what i want to use where
-      "/Users/${vars.user}/.colima/ssh_config"
-    ];
-
     matchBlocks = {
       "*" = {
         extraOptions = {
