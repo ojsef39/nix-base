@@ -118,14 +118,6 @@
         done
       }
 
-      catf() {
-        if [ $# -eq 0 ]; then
-          cat "$(fzf)"
-        else
-          cat "$@"
-        fi
-      }
-
       # Source additional scripts
       if [ -d $HOME/.zsh_scripts ]; then
         for file in $HOME/.zsh_scripts/*.zsh; do
