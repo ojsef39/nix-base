@@ -38,3 +38,17 @@ setup_podman_base() {
     fi
   fi
 }
+podman_debian() {
+  podman run -it --rm \
+    -v "$PWD":/workspace \
+    -w /workspace \
+    --privileged \
+    docker.io/debian:latest /bin/bash
+}
+podman_go() {
+  podman run -it --rm \
+    -v "$PWD":/workspace \
+    -w /workspace \
+    --privileged \
+    docker.io/golang:latest /bin/bash
+}
