@@ -116,7 +116,7 @@ in {
       force = true;
     };
     # Settings configuration
-    "${config.programs.nixcord.discord.configDir}/settings.json" = {
+    "${config.programs.nixcord.vesktop.configDir}/settings.json" = {
       text = builtins.toJSON {
         discordBranch = "stable";
         minimizeToTray = true;
