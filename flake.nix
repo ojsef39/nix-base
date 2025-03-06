@@ -10,10 +10,10 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # yuki = {
-    #   url = "github:frostplexx/yuki";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    yuki = {
+      url = "github:frostplexx/yuki";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,12 +23,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }: # yuki,
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
   {
     sharedModules = [
       ./nix/core.nix
       home-manager.darwinModules.home-manager
-      # yuki.nixosModules.default
+      yuki.nixosModules.default
       ({ vars, system, ... }: {  # system is now available here
         home-manager = {
           useGlobalPkgs = true;
