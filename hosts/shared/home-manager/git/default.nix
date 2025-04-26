@@ -41,7 +41,7 @@
           "${vars.full_name}": "#ee99a0" # Maroon
           "jhcloud-bot": "#f4dbd6" # Rosewater
           "renovate[bot]": "#f4dbd6" # Rosewater
-          ${vars.git.lazy.authorColors or ""}
+          ${if vars.git.lazy ? authorColors then builtins.replaceStrings ["\n"] ["\n    "] vars.git.lazy.authorColors else ""}
           "*": "#b7bdf8" #Lavender
     '';
   };
