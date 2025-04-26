@@ -22,7 +22,9 @@
     brews = [
       "ca-certificates"
       "coreutils"
+      "expect"
       "goreleaser"
+      "grip"
       "hashicorp/tap/vault"
       "helm"
       "keyring"
@@ -44,6 +46,7 @@
       "logi-options+"
       "mac-mouse-fix"
       "poe"
+      "raycast"
       "scroll-reverser"
       "shottr"
       "the-unarchiver"

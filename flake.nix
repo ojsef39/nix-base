@@ -10,10 +10,6 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yuki = {
-      url = "github:frostplexx/yuki/dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,17 +18,26 @@
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nh = {
+      url = "github:viperml/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, yuki, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:
+  let
+    overlays = [
+      # Simple overlay to make the nh package available in pkgs
+      (final: prev: {
+        nh = inputs.nh.packages.${prev.system}.default;
+      })
+    ];
+  in
   {
     sharedModules = [
       ./nix/core.nix
+      { nixpkgs.overlays = overlays; }
       home-manager.darwinModules.home-manager
-      yuki.nixosModules.default
-      ({ config, pkgs, ... }: {
-        nixpkgs.config.allowUnfree = true;
-      })
-      ({ vars, system, ... }: {  # system is now available here
+      ({ vars, system, ... }: {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
@@ -40,7 +45,7 @@
           extraSpecialArgs = { inherit vars inputs; };
           users.${vars.user} = import ./hosts/shared/import-hm.nix;
           sharedModules = [
-            inputs.nixcord.homeManagerModules.nixcord
+            inputs.nixcord.homeModules.nixcord
           ];
         };
       })

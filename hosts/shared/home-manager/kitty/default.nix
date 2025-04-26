@@ -75,7 +75,7 @@
       listen_on = "unix:/tmp/mykitty";
 
       # Fonts
-      font_family = "JetBrainsMono Nerd Font Mono";
+      font_family = "Maple Mono NF";
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";
@@ -91,9 +91,6 @@
       macos_option_as_alt = "both";
     };
 
-
-    ##TODO: Add mouse buttons to switch tabs
-    # Keybindings
     keybindings = {
       "ctrl+shift+-" = "launch --location=hsplit --cwd=current";
       "ctrl+shift++" = "launch --location=vsplit --cwd=current";
@@ -160,10 +157,22 @@
     };
 
     "kitty/scripts/project_selector.sh" = {
+      executable = true;
       text = ''
         #!/bin/bash
         ghq_root=~/${vars.git.ghq}
         project_dirs=(${vars.kitty.project_selector})
+
+        # Parse command line arguments
+        no_nvim=false
+        for arg in "$@"; do
+          case $arg in
+            --no-nvim)
+              no_nvim=true
+              shift
+              ;;
+          esac
+        done
 
         # Function to find git repositories under the ghq root path
         git_repos() {
@@ -182,22 +191,22 @@
         project_selector() {
           local project
           project=$(projects | fzf --height 100%)
-
           if [ -n "$project" ]; then
-            {
+            if [ "$no_nvim" = true ]; then
+              # Only change to the directory without opening nvim
+              kitten @ launch --type=tab --cwd="$project" -- env SKIP_FF=1 zsh -il
+              echo "Changed to $project"
+            else
+              # Change directory and open nvim (original behavior)
               kitten @ launch --type=tab --cwd="$project" -- env SKIP_FF=1 zsh -il -c "nvim ."
               echo "Changed to $project"
-            } || {
-              echo "Failed to change directory to $project"
-              exit 1
-            }
+            fi
           else
             echo "No project selected."
           fi
         }
-
         project_selector
-      '';
+    '';
     };
   };
 }

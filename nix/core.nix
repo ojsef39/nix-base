@@ -10,10 +10,8 @@
     package = pkgs.nix;
   };
   nixpkgs.config.allowBroken = true;
+  nixpkgs.config.allowUnfree = true;
 
   # TODO: Idk why this has to be set to 5
   system.stateVersion = 5;
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
 }

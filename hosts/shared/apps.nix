@@ -1,8 +1,10 @@
-{ pkgs, lib, vars, ... }: 
+{ pkgs, lib, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    nh
     podman
     podman-compose
+    virt-viewer
     vscode
   ];
 }

@@ -16,7 +16,6 @@
     zoxide
   ];
 
-  ##TODO: do you really have to still install it when its enabled?
   programs.zsh = {
     enable = lib.mkDefault true;
 
@@ -37,6 +36,7 @@
         "/opt/homebrew/bin"
         "$HOME/Library/Python/3.12/bin"
         "/Users/${vars.user}/${vars.git.ghq}/github.com/ojsef39/commit-oracle"
+        "/Users/josefhofer/.local/bin"
         "$PATH"
       ];
       PYTHON = "/usr/bin/python3";
@@ -60,12 +60,16 @@
       SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true;
       SPACESHIP_PROMPT_SUFFIXES_SHOW=false;
       SSL_CERT_FILE="$(/opt/homebrew/bin/brew --prefix)/etc/ca-certificates/cert.pem";
+      REQUESTS_CA_BUNDLE="$(/opt/homebrew/bin/brew --prefix)/etc/ca-certificates/cert.pem";
+      NIX_GIT_PATH="${vars.git.nix}";
     };
 
     ##TODO: Improve TMUX function (move away from tmux + make session name more readable)
-    initExtra = ''
+    initContent = ''
       autoload -U promptinit; promptinit
       bindkey -r "^j"
+
+      source <(fzf --zsh)
 
       # TMUX function
       # n() {
@@ -153,11 +157,16 @@
     shellAliases = {
       update-nix = "make -C ${vars.git.nix} update";
       select-nix = "make -C ${vars.git.nix} select";
-      please = "sudo";
+      nhu = "nh darwin switch -u -a -H mac $NIX_GIT_PATH";
+      nhb = "nh darwin build -u -H mac $NIX_GIT_PATH";
+      nhd = "nh darwin switch -a -H mac $NIX_GIT_PATH";
+      nhc = "nh darwin clean all -a -k 2 -K 14d";
+      ghql = "/Users/${vars.user}/.config/kitty/scripts/project_selector.sh --no-nvim";
       ls = "eza --icons --git --header";
       cat = "bat --theme=base16-256";
       tree = "eza --icons --git --header --tree";
       lg = "lazygit";
+      k = "kubectl";
       n = "nvim";
       x = "exit";
     };
