@@ -9,6 +9,7 @@
     update-nix-fetchgit # https://github.com/expipiplus1/update-nix-fetchgit
     ##
     just
+    kubernix
     podman
     podman-compose
     virt-viewer
