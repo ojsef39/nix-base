@@ -20,8 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixkit = {
-      # url = "github:frostplexx/nixkit";
-      url = "github:ojsef39/nixkit";
+      url = "github:frostplexx/nixkit";
+      # url = "github:ojsef39/nixkit";
       # url = "/Users/josefhofer/CodeProjects/github.com/frostplexx/nixkit";
       inputs.nixpkgs.follows = "nixpkgs";
     };
