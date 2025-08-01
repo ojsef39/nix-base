@@ -26,10 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # ⬇️ Leave here as example for building from source instead of nixpkg repo:
-    # nh = {
-    #   url = "github:viperml/nh";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -39,24 +39,23 @@
       nixkit,
       ...
     }:
-    # ⬇️ Leave here as example for building from source instead of nixpkg repo:
-    # let
-    #   overlays = [
-    #     (final: prev: {
-    #       # nh = inputs.nh.packages.${prev.system}.default;
-    #       renovate = inputs.nixpkgs_fork.legacyPackages.${prev.system}.renovate;
-    #     })
-    #   ];
-    # in
     {
-      nixpkgs.overlays = [ nixkit.overlays.default ];
       sharedModules = [
+        {
+          nixpkgs.overlays = [
+            nixkit.overlays.default
+            # ⬇️ Leave here as example for building from source instead of nixpkg repo:
+            (final: prev: {
+              nh = inputs.nh.packages.${prev.system}.default;
+              # renovate = inputs.nixpkgs_fork.legacyPackages.${prev.system}.renovate;
+            })
+          ];
+        }
         ./nix/core.nix
-        # { nixpkgs.overlays = overlays; } # Leave here as example for building from source instead of nixpkg repo:
         home-manager.darwinModules.home-manager
         nixkit.darwinModules.default
         (
-          { vars, system, ... }:
+          { vars, ... }:
           {
             home-manager = {
               useGlobalPkgs = true;
