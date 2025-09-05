@@ -4,16 +4,13 @@
   lib,
   vars,
   ...
-}:
-let
+}: let
   # Filter out lazy-lock.json from the source directory
   nvimConfigFiltered = lib.cleanSourceWith {
     src = ./nvim;
-    filter =
-      path: type:
-      let
-        baseName = baseNameOf path;
-      in
+    filter = path: type: let
+      baseName = baseNameOf path;
+    in
       baseName != "lazy-lock.json";
   };
   treeSitterWithAllGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (
@@ -21,16 +18,12 @@ let
   );
 
   # Convert Nix ignorelist to Lua table
-  userIgnorelist = vars.nvim.cord.ignorelist or [ ];
-  cordIgnorelist = userIgnorelist ++ [ vars.user.name ];
-  ignorelistToLua =
-    ignorelist:
-    let
-      quotedItems = map (item: "'${item}'") ignorelist;
-    in
-    "{ ${lib.concatStringsSep ", " quotedItems} }";
-in
-{
+  userIgnorelist = vars.nvim.cord.ignorelist or [];
+  cordIgnorelist = userIgnorelist ++ [vars.user.name];
+  ignorelistToLua = ignorelist: let
+    quotedItems = map (item: "'${item}'") ignorelist;
+  in "{ ${lib.concatStringsSep ", " quotedItems} }";
+in {
   # Packages you also want to outside use outside of nvim
   home.packages = with pkgs; [
     claude-code
