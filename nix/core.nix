@@ -61,6 +61,7 @@ in {
       experimental-features = [
         "nix-command"
         "flakes"
+        "parallel-eval"
       ];
       extra-substituters = [
         # "https://nix-community.cachix.org"
