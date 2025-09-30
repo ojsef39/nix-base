@@ -8,6 +8,10 @@
       url = "github:ojsef39/nixpkgs/mist";
       # url = "/Users/josefhofer/CodeProjects/github.com/ojsef39/nixpkgs";
     };
+    nixpkgs_claude_code_fork = {
+      url = "github:mirkolenz/nixpkgs/claude-code";
+      # url = "/Users/josefhofer/CodeProjects/github.com/ojsef39/nixpkgs";
+    };
     home-manager = {
       url = "https://flakehub.com/f/nix-community/home-manager/0.1.tar.gz"; # latest master
       # url = "/Users/josefhofer/CodeProjects/github.com/nix-community/home-manager";
@@ -53,6 +57,7 @@
           (_final: prev: {
             nh = inputs.nh.packages.${prev.system}.default;
             inherit (inputs.nixpkgs_fork.legacyPackages.${prev.system}) mist mist-cli;
+            nixpkgs_claude_code_fork = inputs.nixpkgs_claude_code_fork.legacyPackages.${prev.system}.claude-code;
             # renovate = inputs.nixpkgs_fork.legacyPackages.${prev.system}.renovate;
           })
         ];
