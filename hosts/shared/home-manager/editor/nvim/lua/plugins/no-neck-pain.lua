@@ -11,7 +11,7 @@ require("no-neck-pain").setup({
 	buffers = {
 		colors = {
 			blend = -0.2,
-			backgroundColor = "catppuccin-machiatto",
+			backgroundColor = "catppuccin-macchiato",
 		},
 		scratchPad = {
 			-- set to `false` to
