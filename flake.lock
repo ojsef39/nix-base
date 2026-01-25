@@ -294,11 +294,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769241773,
-        "narHash": "sha256-KiU37jkiRNghmT0j7HMdET07oMBjKHLdgZnDjAsUpL8=",
+        "lastModified": 1769337638,
+        "narHash": "sha256-xJvTZGJWaSBq857V/PVL5GblIpiuO0IuUupLvBxNqr0=",
         "owner": "kaylorben",
         "repo": "nixcord",
-        "rev": "373c02891c905d62efd342dd069fc84bcbd01798",
+        "rev": "ef69bfad63be091496c444675aee2e8af6a8973c",
         "type": "github"
       },
       "original": {
@@ -403,12 +403,12 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1768783163,
-        "narHash": "sha256-tLj4KcRDLakrlpvboTJDKsrp6z2XLwyQ4Zmo+w8KsY4=",
-        "rev": "bde09022887110deb780067364a0818e89258968",
-        "revCount": 930106,
+        "lastModified": 1769298235,
+        "narHash": "sha256-6LYNeTHX7779CiR4oqhG4C6u2NIUeZUOfITHgywaRlQ=",
+        "rev": "26b0093bc977081dc7653175a3fadab11e07bed7",
+        "revCount": 934321,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/JHOFER-Cloud/NixOS-nixpkgs/0.1.930106%2Brev-bde09022887110deb780067364a0818e89258968/019bd757-d826-7090-b13e-1e26e4b94597/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/JHOFER-Cloud/NixOS-nixpkgs/0.1.934321%2Brev-26b0093bc977081dc7653175a3fadab11e07bed7/019bf3ad-1bd2-745b-82fb-b50725ae8cb2/source.tar.gz"
       },
       "original": {
         "type": "tarball",
